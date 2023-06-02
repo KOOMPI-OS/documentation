@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <title></title>
+<link rel="stylesheet" href="/assets/css/index.css">
+<script type="text/javascript" src="/assets/js/autosummary.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  <body>
+    <main>
+      <aside>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="https://github.com/KOOMPI-OS/documentation">Source Code</a>
+          </li>
+          <li>
+            <a href="https://koompi.org/">Website</a>
+          </li>
+        </ul>
+        <div class="summary">
+          <b>Summary</b>
+          <ul>
+              <li>Loading...</li>
+          </ul>
+        </div>
+      </aside>
+      <article>
+        <div class="container"><h1 id="administrador-de-paquetes-pix">Administrador de paquetes (<code class="language-plaintext highlighter-rouge">pix</code>)</h1>
+
+<p><code class="language-plaintext highlighter-rouge">pix</code> es el administrador de paquetes de KOOMPI OS que es fácil de usar para instalar paquetes de múltiples fuentes dentro de contenedores sin la necesidad de alterar el sistema de archivos raíz.</p>
+
+<h2 id="cómo-funciona">Cómo funciona</h2>
+
+<p><code class="language-plaintext highlighter-rouge">pix</code> introduce completamente un nuevo paradigma en la administración de paquetes. La idea es 
+usar su sistema solo como un almacen de sus archivos, dejándolo limpio de paquetes
+y limitando el riesgo de quiebres por incompatibilidades, paquetes mal contruidos
+o que causan conflicto.</p>
+
+<p>Esto se logra instalando el software dentro de uno o más contenedores totalmente administrados por <code class="language-plaintext highlighter-rouge">pix</code> teniendo acceso restringido a los recursos de su sistema pero con la posibilidad de usar solo sus controladores, servidor gráfico, etc.</p>
+
+<p>Su directorio home está mapeado dentro del contenedor lo que le permite a usted acceder
+a sus archivos de configuración, preferencias y otros archivos vitales necesarios para
+los paquetes instalados, y al mismo tiempo que los paquetes instalados puedan acceder
+a sus archivos, por ejemplo, abrir un archivo en LibreOffice.</p>
+
+<h3 id="sistema-anfitrión">Sistema Anfitrión</h3>
+
+<p>Si bien la instalación de software en el sistema anfitrión va en contra de ideología del proyecto, hay casos en donde es esencial. Por ejemplo, cuando usted necesita
+instalar un módulo del kernel o controlador.</p>
+
+<p>En casos como este, usted puede usar el comando <code class="language-plaintext highlighter-rouge">abroot exec apt install &lt;package_name&gt;</code> o <code class="language-plaintext highlighter-rouge">abroot shell apt install &lt;package_name&gt;</code> para instalar directamente en el sistema anfitrión sin usar contenedores, <em>pero tenga en cuenta
+que esto no es recomendable</em>.</p>
+
+<h3 id="múltiples-fuentes">Múltiples fuentes</h3>
+
+<p>Por defecto, <code class="language-plaintext highlighter-rouge">pix</code> proporciona un contenedor basado en la distribución Ubuntu 22.10
+para proveer KOOMPI OS 22.10, y aísla todos los comandos del administrador de
+paquetes de la distribución (en este caso <code class="language-plaintext highlighter-rouge">apt</code> para Ubuntu).</p>
+
+<p>Sin embargo, usted puede instalar paquetes de otras distribuciones. Por ejemplo, usando la opción <code class="language-plaintext highlighter-rouge">--aur</code>,
+un nuevo contenedor basado en Arch Linux se creará. Aquí, <code class="language-plaintext highlighter-rouge">pix</code> se encargará de administrar los paquetes de AUR
+(Pacman y Yay), integrándolos con el sistema anfitrión.
+Usando la opción <code class="language-plaintext highlighter-rouge">--dnf</code> con <code class="language-plaintext highlighter-rouge">pix</code> se creará un nuevo contenedor basado en Fedora Linux. Aquí, <code class="language-plaintext highlighter-rouge">pix</code>
+se encargará de administrar los paquetes de los repositorios DNF de Fedora, integrándolos con el sistema anfitrión.</p>
+
+<p>Para los paquetes con interfaz gráfica, <code class="language-plaintext highlighter-rouge">pix</code> crea archivos <code class="language-plaintext highlighter-rouge">.desktop</code> automaticamente dentro de los contenedores y los añade al menú de aplicaciones. Estas aplicaciones también se mostarán al momento de utilizar la opción “Abrir con” en el menú de nautilus. Los paquetes con interfaz gráfica instalados dentro de los contenedores se mostrarán en la sección Subsistema en el <a href="/docs/vanilla-control-center">Panel de control de Vanilla</a>.</p>
+
+<p>Para el control de calidad, nosotros hemos limitado esta función para implementaciones específicas. Actualmente, solo las opciones <code class="language-plaintext highlighter-rouge">--aur</code> y <code class="language-plaintext highlighter-rouge">--dnf</code> están soportadas,
+pero estamos planeando implementar soporte para el administrador de paquetes Nix en un futuro.</p>
+
+<h3 id="nombramiento">Nombramiento</h3>
+
+<p>El nombre <code class="language-plaintext highlighter-rouge">pix</code> proviene de <strong>apt (Advanced Packaging Tool)</strong>, el administrador de paquetes usado por Debian y sus derivadas. <strong>X</strong> consta de dos líneas (host y contenedor) superpuestas una a otra, donde el contenedor está en la parte superior,
+lo que significa que es la parte principal del sistema anfitrión.</p>
+
+<h2 id="uso">Uso</h2>
+
+<ul>
+  <li><a href="/docs/pix/manpage">Manual</a></li>
+</ul>
+</div>
+      </article>
+    </main>
+    <script>
+    autosummary("article", "aside>.summary>ul");
+</script>
+
+  </body>
+</html>

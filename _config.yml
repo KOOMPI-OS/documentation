@@ -1,0 +1,16 @@
+title: KOOMPI OS Documentation
+author: KOOMPI OS Contributors
+email: send@mirko.pm
+
+assets: /assets
+uploads: /uploads
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+url: "https://docs.koompi.org"
+plugins:
+  - jekyll-sitemap

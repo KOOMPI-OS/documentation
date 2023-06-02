@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <title>Manpage kso - KOOMPI OS</title>
+<link rel="stylesheet" href="/assets/css/index.css">
+<script type="text/javascript" src="/assets/js/autosummary.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  <body>
+    <main>
+      <aside>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="https://github.com/KOOMPI-OS/documentation">Source Code</a>
+          </li>
+          <li>
+            <a href="https://koompi.org/">Website</a>
+          </li>
+        </ul>
+        <div class="summary">
+          <b>Summary</b>
+          <ul>
+              <li>Loading...</li>
+          </ul>
+        </div>
+      </aside>
+      <article>
+        <div class="container"><h1 id="manpage-kso">Manpage <code class="language-plaintext highlighter-rouge">kso</code></h1>
+
+<h2 id="name">NAME</h2>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kso is an utility which allows you to perform maintenance tasks on your KOOMPI OS installation.
+</code></pre></div></div>
+
+<h2 id="synopsis">SYNOPSIS</h2>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kso [options] [command] [arguments]
+</code></pre></div></div>
+
+<h2 id="description">DESCRIPTION</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Usage: 
+    kso [options] [command] [arguments]
+
+Options:
+    -h, --help            Show this help message and exit
+
+Commands:
+    config                  Configure VSO
+    create-task             Create a new task
+    delete-task             Delete a task
+    developer-program       Join the developers program
+    help                    Show this help message and exit
+    list-tasks              List all tasks
+    rotate-tasks            Rotate tasks
+    trigger-update          Trigger a system update
+    version                 Show version and exit<span class="err">`</span>
+</code></pre></div></div>
+
+<h2 id="config">CONFIG</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Description: 
+    Configure VSO
+
+Usage:
+    kso config [options] [command]
+
+Options:
+    --help/-h           show this message
+    --assume-yes/-y     assume yes to all questions
+
+Commands:
+    show                show current configuration
+    get <span class="nt">&lt;key&gt;</span>           get a configuration value
+    set <span class="nt">&lt;key&gt;</span> <span class="nt">&lt;value&gt;</span>   set a configuration value
+
+Examples:
+    kso config get updates::schedule
+    kso config set updates::schedule weekly
+</code></pre></div></div>
+
+<h2 id="create-task">CREATE TASK</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Description: 
+    Create a new task
+
+Usage:
+    kso create-task [options] [arguments]
+
+Options:
+    --help/-h               show this message
+
+Arguments:
+    --name/-n               name of the task
+    --description/-d        description of the task
+    --need-confirm          ask for confirmation before executing the task
+    --command/-c            command to execute
+    --after-task            execute the task after another task
+    --after-task-success    execute the task after another task if it was successful
+    --after-task-failure    execute the task after another task if it failed
+    --every/-e              execute the task every X (minutes, hours, days)
+    --at/-a                 execute the task at a specific time (hh:mm)
+    --on-boot               execute the task on boot
+    --on-shutdown           execute the task on shutdown
+    --on-login              execute the task on login
+    --on-network            execute the task on network connection
+    --on-disconnect         execute the task on network disconnection
+    --on-battery            execute the task on battery
+    --on-low-battery        execute the task on low battery (20%)
+    --on-charge             execute the task on battery charging
+    --on-full-battery       execute the task on full battery
+    --on-condition-command  execute the task on condition command
+    --on-process            execute the task when a process comes up
+
+Examples:
+    kso create-task -n "Battery fully charged" -d "notify at full charge" -c "notify-send 'Battery fully charged'" --on-full-battery
+    kso create-task -n "Launch-terminal" -d "Launch terminal at Settings launch" -c "kgx" --on-process gnome-control-center
+</code></pre></div></div>
+
+<h2 id="delete-task">DELETE TASK</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Description: 
+    Delete a task
+
+Usage:
+    kso delete-task [task] [options]
+
+Options:
+    --help/-h       show this message
+
+Examples:
+    kso delete-task my-task
+    kso delete-task "my task"
+</code></pre></div></div>
+
+<h2 id="developer-program">DEVELOPER PROGRAM</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Description: 
+    Join the developers program
+
+Usage:
+    kso developer-program [options]
+
+Options:
+    --help/-h       show this message
+
+Examples:
+    kso developer-program
+</code></pre></div></div>
+
+<h2 id="list-tasks">LIST TASKS</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Description: 
+    List all tasks
+
+Usage:
+    kso list-tasks [options]
+
+Options:
+    --help/-h       show this message
+
+Examples:
+    kso list-tasks
+</code></pre></div></div>
+
+<h2 id="rotate-tasks">ROTATE TASKS</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Description: 
+    Rotate tasks
+
+Usage:
+    kso rotate-tasks [options]
+
+Options:
+    --help/-h       show this message
+
+Examples:
+    kso rotate-tasks
+</code></pre></div></div>
+
+<h2 id="trigger-update">TRIGGER UPDATE</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Description: 
+    Trigger a system update
+
+Usage:
+    kso trigger-update [options]
+
+Options:
+    --help/-h       show this message
+    --now           trigger a system update immediately
+
+Examples:
+    kso trigger-update --now
+</code></pre></div></div>
+
+<h2 id="see-also">SEE ALSO</h2>
+
+<ul>
+  <li><a href="/docs/pix"><code class="language-plaintext highlighter-rouge">pix</code></a></li>
+  <li><a href="/docs/kso"><code class="language-plaintext highlighter-rouge">abroot</code></a></li>
+</ul>
+
+<h2 id="author">AUTHOR</h2>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Contributors of KOOMPI OS
+</code></pre></div></div>
+
+<h2 id="reporting-bugs">REPORTING BUGS</h2>
+
+<p>Report bugs to the <a href="https://github.com/koompi-os/vanilla-system-operator/issues">issue tracker</a>.</p>
+</div>
+      </article>
+    </main>
+    <script>
+    autosummary("article", "aside>.summary>ul");
+</script>
+
+  </body>
+</html>

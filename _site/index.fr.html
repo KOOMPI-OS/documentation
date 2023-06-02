@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <title></title>
+<link rel="stylesheet" href="/assets/css/index.css">
+<script type="text/javascript" src="/assets/js/autosummary.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  <body>
+    <main>
+      <aside>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="https://github.com/KOOMPI-OS/documentation">Source Code</a>
+          </li>
+          <li>
+            <a href="https://koompi.org/">Website</a>
+          </li>
+        </ul>
+        <div class="summary">
+          <b>Summary</b>
+          <ul>
+              <li>Loading...</li>
+          </ul>
+        </div>
+      </aside>
+      <article>
+        <div class="container"><h1 id="koompi-os">KOOMPI OS</h1>
+
+<p>Goûtez à l’expérience épicée d’un GNOME Vanilla sur Ubuntu.</p>
+
+<h2 id="faq">FAQ</h2>
+
+<p>Réponses aux questions les plus fréquemment posées (alors même que le projet est tout nouveau).</p>
+<ul>
+  <li><strong>Pourquoi une nouvelle distribution ?</strong><br />
+KOOMPI OS est né de la nécessité de disposer d’une distribution Linux basée sur Ubuntu qui 
+qui fournirait un GNOME standard sans aucune modification de l’expérience utilisateur. 
+Plus tard, son champ d’application a été étendu pour expérimenter certains outils et technologies, tels qu’Almost (immutabilité à la demande) et 
+pix (le sous-système basé sur Distrobox).</li>
+  <li><strong>Est-ce que KOOMPI OS utilise OSTree ?</strong><br />
+Non. KOOMPI OS accomplit l’immutabilité par le biais d’<a href="https://github.com/koompi-os/almost"><code class="language-plaintext highlighter-rouge">almost</code></a>. 
+Nous avons écrit cet utilitaire pour une immutabilité à la demande basée sur l’attribut d’immutabilité des fichiers. 
+Cette approche fonctionne avec n’importe quel schéma de partition ou système de fichiers. L’utilisation d’OSTree est encore envisageable à l’avenir.</li>
+  <li><strong>Version rolling ?</strong><br />
+Non. KOOMPI OS fonctionne par version intermédiaire et suit le cycle de publication d’Ubuntu.</li>
+</ul>
+
+<h2 id="sections">Sections</h2>
+
+<ul>
+  <li>
+    <p><strong><a href="/docs/almost">Immutabilité (<code class="language-plaintext highlighter-rouge">almost</code>)</a></strong><br />
+Almost est un utilitaire pour l’immutabilité à la demande basée sur l’attribut d’immutabilité des fichiers.</p>
+  </li>
+  <li>
+    <p><strong><a href="/docs/pix">Gestionnaire de paquets (<code class="language-plaintext highlighter-rouge">pix</code>)</a></strong><br />
+pix est un gestionnaire de paquets qui vous permet d’installer et de gérer des paquets dans un conteneur contrôlé, sans affecter le système hôte.
+Occasionnellement, il est possible d’utiliser <code class="language-plaintext highlighter-rouge">pix</code> pour installer des paquets sur le système hôte.</p>
+  </li>
+</ul>
+</div>
+      </article>
+    </main>
+    <script>
+    autosummary("article", "aside>.summary>ul");
+</script>
+
+  </body>
+</html>

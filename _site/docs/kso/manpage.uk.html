@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <title>kso - Manpage - KOOMPI OS</title>
+<link rel="stylesheet" href="/assets/css/index.css">
+<script type="text/javascript" src="/assets/js/autosummary.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  <body>
+    <main>
+      <aside>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="https://github.com/KOOMPI-OS/documentation">Source Code</a>
+          </li>
+          <li>
+            <a href="https://koompi.org/">Website</a>
+          </li>
+        </ul>
+        <div class="summary">
+          <b>Summary</b>
+          <ul>
+              <li>Loading...</li>
+          </ul>
+        </div>
+      </aside>
+      <article>
+        <div class="container"><h1 id="manpage-kso">Manpage: <code class="language-plaintext highlighter-rouge">kso</code></h1>
+
+<h2 id="найменування">Найменування</h2>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kso - утиліта, за допомогою якої ви можете виконувати завдання з обслуговування вашої системи KOOMPI OS.
+</code></pre></div></div>
+
+<h2 id="короткий-опис">Короткий опис</h2>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kso [параметри] [команда] [аргументи]
+</code></pre></div></div>
+
+<h2 id="опис">Опис</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Використання:<span class="sb">
+
+
+</span>Параметри:
+    -h, --help              Показати це повідомлення і вийти
+
+Команди:
+    config                  Налаштувати VSO
+    create-task             Створити нове завдання
+    delete-task             Видалити завдання
+    developer-program       Приєднатися до програми розробників
+    help                    Показати це повідомлення і вийти
+    list-tasks              Перерахувати всі завдання
+    rotate-tasks            Чергувати завдання
+    trigger-update          Запустити оновлення системи
+    version                 Показати версію і вийти
+</code></pre></div></div>
+
+<h2 id="конфігурація">Конфігурація</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Опис:
+    Налаштування VSO
+
+Використання:
+    kso config [options] [command] [command] (kso config [options])
+
+Параметри:
+    --help/-h               Показати це повідомлення
+    --assume-yes/-y         Вважати, що ви відповіли "так" на всі питання
+
+Команди:
+    show                    Показати поточну конфігурацію
+    get <span class="nt">&lt;key&gt;</span>               Отримати значення конфігурації
+    set <span class="nt">&lt;key&gt;</span> <span class="nt">&lt;value&gt;</span>       Встановити значення конфігурації
+
+Приклади:
+    kso config get updates::schedule
+    kso config set updates::schedule weekly
+</code></pre></div></div>
+
+<h2 id="створення-нових-завдань">Створення нових завдань</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Опис:
+    Створити нове завдання
+
+Використання:
+    kso create-task [options] [arguments] [options] [arguments] [options].
+
+Параметри:
+    --help/-h                   Показати це повідомлення
+
+Аргументи:
+    --name/-n                   Назва завдання
+    --description/-d            Опис завдання
+    --need-confirm              Запитати підтвердження перед виконанням завдання
+    --command/-c                Команда для виконання
+    --after-task                Виконати завдання після іншого завдання
+    --after-task-success        Виконати завдання після іншого завдання, якщо воно було успішним
+    --after-task-failure        Виконати завдання після іншого завдання, якщо воно завершилося невдало
+    --every/-e виконувати       Завдання кожні X (хвилин, годин, днів)
+    --at/-a                     Виконати завдання у визначений час (hh:mm)
+    --on-boot                   Виконувати завдання під час завантаження
+    --on-shutdown               Виконувати завдання при завершенні роботи
+    --on-login                  Виконувати завдання при вході в систему
+    --on-network                Виконувати завдання при підключенні до мережі
+    --on-disconnect             Виконати завдання при відключенні від мережі
+    --on-battery                Виконати завдання заряду батареї
+    --on-low-battery            Виконати завдання при низькому заряді батареї (20%)
+    --on-charge                 Виконати завдання під час заряджання акумулятора
+    --on-full-battery           Виконувати завдання при повному заряді акумулятора
+    --on-condition-command      Виконати завдання за командою умови
+    --on-process                Виконати завдання при запуску процесу
+
+Приклади:
+    kso create-task -n "Батарея повністю заряджена" -d "Повідомляти про повний заряд" -c "notify-send 'Батарея повністю заряджена'" --on-full-battery
+    kso create-task -n "Запустити термінал" -d "Запускати термінал, коли відкриваєш Налаштування." -c "kgx" --on-process gnome-control-center
+</code></pre></div></div>
+
+<h2 id="видалення-завдань">Видалення завдань</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Опис:
+Видалення завдання
+
+Використання:
+kso delete-task [task] [options] [options] [task] [options].
+
+Параметри:
+    --help/-h показати це повідомлення
+
+Приклади:
+    kso delete-task my-task
+    kso delete-task "Моє завдання"
+</code></pre></div></div>
+
+<h2 id="програма-для-розробників">Програма для розробників</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Опис:
+    Приєднатися до програми для розробників
+
+Використання:
+    kso developer-program [options] [options] [options].
+
+Параметри:
+    --help/-h               Показати це повідомлення
+
+Приклади:
+    kso developer-program
+</code></pre></div></div>
+
+<h2 id="перелік-завдань">Перелік завдань</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Опис:
+    Перерахувати всі завдання
+
+Використання:
+    kso list-tasks [опції].
+
+Параметри:
+    --help/-h               Показати це повідомлення
+
+Приклади:
+    kso list-tasks
+</code></pre></div></div>
+
+<h2 id="ротація-завдань">Ротація завдань</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Опис:
+    Ротація завдань
+
+Використання:
+    kso rotate-tasks [options] [параметри].
+
+Параметри:
+    --help/-h               Показати це повідомлення
+
+Приклади:
+    kso rotate-tasks
+</code></pre></div></div>
+
+<h2 id="запуск-оновлення-системи">Запуск оновлення системи</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Опис:
+    Запустити оновлення системи
+
+Використання:
+    kso trigger-update [options] [опції].
+
+Параметри:
+    --help/-h               Показати це повідомлення
+    --now                   Негайно запустити оновлення системи
+
+Приклади:
+    kso trigger-update --now
+</code></pre></div></div>
+
+<h2 id="дивіться-також">Дивіться також</h2>
+
+<ul>
+  <li><a href="/docs/pix/index.uk"><code class="language-plaintext highlighter-rouge">pix</code></a></li>
+  <li><a href="/docs/kso/index.uk"><code class="language-plaintext highlighter-rouge">abroot</code></a></li>
+</ul>
+
+<h2 id="автори">Автори</h2>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Спільнота KOOMPI OS
+Переклад: Сапуцький Петро (@voxelin)
+</code></pre></div></div>
+
+<h2 id="повідомлення-про-помилки">Повідомлення про помилки</h2>
+
+<p>Повідомляйте про баги на <a href="https://github.com/koompi-os/vanilla-system-operator/issues">трекері помилок</a>.</p>
+</div>
+      </article>
+    </main>
+    <script>
+    autosummary("article", "aside>.summary>ul");
+</script>
+
+  </body>
+</html>

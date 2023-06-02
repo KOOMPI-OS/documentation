@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <title>প্যাকেজ ম্যানেজার (pix) - ভ্যানিলা ওএস</title>
+<link rel="stylesheet" href="/assets/css/index.css">
+<script type="text/javascript" src="/assets/js/autosummary.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  <body>
+    <main>
+      <aside>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="https://github.com/KOOMPI-OS/documentation">Source Code</a>
+          </li>
+          <li>
+            <a href="https://koompi.org/">Website</a>
+          </li>
+        </ul>
+        <div class="summary">
+          <b>Summary</b>
+          <ul>
+              <li>Loading...</li>
+          </ul>
+        </div>
+      </aside>
+      <article>
+        <div class="container"><h1 id="প্যাকেজ-ম্যানেজার-pix">প্যাকেজ ম্যানেজার (<code class="language-plaintext highlighter-rouge">pix</code>)</h1>
+
+<p><code class="language-plaintext highlighter-rouge">pix</code> হচ্ছে ভ্যানিলা ওএস প্যাকেজ ম্যানেজার যা ব্যবহার করা খুবই সহজ এবং এটি রুট ফাইল ব্যবস্থাপনায় কোনো পরিবর্তন ব্যতিতই কন্টেইনারের ভিতরে বিভিন্ন উৎস থেকে প্যাকেজ ইন্সটল করা সমর্থন করে।</p>
+
+<h2 id="যেভাবে-এটি-কাজ-করে">যেভাবে এটি কাজ করে</h2>
+
+<p><code class="language-plaintext highlighter-rouge">pix</code> প্যাকেজ ম্যানেজমেন্টের জগতে অভিনব এক পন্থা উপস্থাপন করেছে। বুদ্ধিটা হচ্ছে, আপনার সিস্টেমকে শুধুমাত্র
+আপনার ফাইলপত্র জমা রাখার একটি বাক্স হিসেবে ব্যবহার করবেন। যা একে বিভিন্ন প্যাকেজ থেকে মুক্ত রাখবে
+আর এটি অসম্পূর্ণ, পারিপাট্যহীন ভাবে তৈরি অথবা সংঘাতময় প্যাকেজের কারণে নষ্ট হয়ে যাওয়ার ঝুঁকি কমিয়ে দিবে।</p>
+
+<p>এটি করা সম্ভব ‘pix’ কর্তৃক নিয়ন্ত্রিত এক বা একাধিক কন্টেইনারের মধ্যে সফটওয়্যার ইনস্টল করার মাধ্যমে। আপনার সিস্টেম রিসোর্সের প্রতি এর এক্সেস সীমাবদ্ধ থাকে। তবুও এটি সিস্টেমে থাকা একই ড্রাইভার, ডিস্প্লে সার্ভার ইত্যাদি ব্যবহার করতে পারে।</p>
+
+<p>আপনার হোম ডিরেক্টরি কনটেইনারের ভিতরেও ম্যাপ করা থাকে। তাই আপনি হোমে থাকা সকল কনফিগ ফাইল,
+সেটিংস, অন্যান্য প্রয়োজনীয় ড্যাটা কন্টেইনারে ভিতর ইনস্টল করা প্যাকেজেও এক্সেস করতে পারবেন। একইভাবে সকল
+ফাইল কন্টেইনারে থাকা সফটওয়্যারে এক্সেস করতে পারবেন। (যেমন হোমে থাকা কোনো ডকুমেন্ট ফাইল কন্টেইনারে থাকা লিব্রাঅফিসে ওপেন করতে পারবেন।)</p>
+
+<h3 id="হোস্ট-সিস্টেম">হোস্ট সিস্টেম</h3>
+
+<p>যদিও হোস্ট সিস্টেমে সফটওয়্যার ইনস্টল করাটা এই প্রকল্পের আদর্শের সাথে সাংঘর্ষিক, তবু কখনো কখনো এটি জরুরিও হতে পারে। উদাহরণস্বরূপ, যখন আপনার কোনো কার্নেল মড্যুল বা ড্রাইভার
+ইন্সটল করার দরকার হয়।</p>
+
+<p>এসব ক্ষেত্রে আপনি কন্টেইনারকে পাশ কাটিয়ে সরাসরি হোস্টে ইনস্টল করতে চাইলে <code class="language-plaintext highlighter-rouge">abroot exec apt install &lt;package_name&gt;</code> অথবা <code class="language-plaintext highlighter-rouge">abroot shell apt install &lt;package_name&gt;</code> ব্যবহার করতে পারেন।
+কিন্তু সতর্ক থাকবেন, এই পন্থাটি প্রণিধানযোগ্য নয়।</p>
+
+<h3 id="বিভিন্ন-উৎস">বিভিন্ন উৎস</h3>
+
+<p>ডিফল্ট ভাবে <code class="language-plaintext highlighter-rouge">pix</code> আপনার ডিস্ট্রিবিউশনের উপর ভিত্তি করে একটি কনটেইনার প্রদান করে (ভ্যানিলা ওএস ২২.১০ এ উবুন্টু ২২.১০ প্রদান করা হয়)
+আর এটি ঐ ডিস্ট্রিবিউশনের প্যাকেজ ম্যানেজারের সকল কমান্ড অন্তর্ভুক্ত করে (যেমন উবুন্টুতে <code class="language-plaintext highlighter-rouge">apt</code>)।</p>
+
+<p>যাইহোক, আপনি চাইলে অন্য ডিস্ট্রিবিউশন থেকেও প্যাকেজ ইনস্টল করতে পারবেন। উদাহরণস্বরূপ, <code class="language-plaintext highlighter-rouge">--aur</code> ফ্লাগ ব্যবহার করলে
+আর্চ লিনাক্স ভিত্তিক নতুন একটি কনটেইনার তৈরি হবে। এখানে <code class="language-plaintext highlighter-rouge">pix</code> আপনার হোস্ট সিস্টেমের সাথে শক্ত ভাবে সমন্বয় করে
+AUR (Pacman ও yay) প্যাকেজগুলি নিয়ন্ত্রণ করবে।</p>
+
+<p><code class="language-plaintext highlighter-rouge">pix</code>-এর সাথে <code class="language-plaintext highlighter-rouge">--dnf</code> ফ্লাগ ব্যবহার করলে এটি একটি নতুন ফেডোরা ভিত্তিক কনটেইনার তৈরি করবে।
+এখানে <code class="language-plaintext highlighter-rouge">pix</code> আপনার হোস্ট সিস্টেমের সাথে শক্ত ভাবে সমন্বয় করে ফেডোরার ডিএনএফ উৎসে থাকা প্যাকেজগুলি নিয়ন্ত্রণ করবে।</p>
+
+<p><code class="language-plaintext highlighter-rouge">pix</code> কনটেইনারের ভিতর তৈরি হওয়া গ্রাফিক্যাল ইউজার ইন্টারফেস যুক্ত প্যাকেজগুলির জন্য স্বয়ংক্রিয়ভাবে .desktop ফাইল তৈরি করা হয় এবং অ্যাপ্লিকেশন মেন্যুতে যোগ করা হয়। এই অ্যাপ্লিকেশনগুলি ফাইল ম্যানেজারের “Open with” (অন্য অ্যাপে খুলুন) মেন্যুতে থাকা অ্যাপগুলির সাথে প্রদর্শিত হয়। কনটেইনারের ভিতরে থাকা গ্রাফিক্যাল ইন্টারফেস যুক্ত প্যাকেজগুলি <a href="/docs/vanilla-control-center">ভ্যানিলা নিয়ন্ত্রণ কেন্দ্রের</a> সাবসিস্টেম সেকশনে প্রদর্শিত হয়।</p>
+
+<p>গুণগত মান নিয়ন্ত্রণে রাখতে আমরা এই বৈশিষ্ট্যটি নির্দিষ্ট কিছু বাস্তবায়নে সীমাবদ্ধ রাখছি। আপাতত শুধু <code class="language-plaintext highlighter-rouge">--aur</code> ও <code class="language-plaintext highlighter-rouge">--dnf</code> ফ্লাগ দুটি সমর্থিত। 
+কিন্তু আমরা ভবিষ্যতে নিক্স প্যাকেজ ম্যানেজমেন্ট সমর্থনও বাস্তবায়ন করব।</p>
+
+<h3 id="নামকরণ">নামকরণ</h3>
+
+<p><code class="language-plaintext highlighter-rouge">pix</code> নামটি মূলত ডেবিয়ান ও তা থেকে উৎপত্ত ডিস্ট্রোগুলিতে ব্যবহৃত  <strong>apt (Advanced Packaging Tool)</strong> থেকে এসেছে। <strong>X</strong> এ দুটি রেখা রয়েছে (হোস্ট ও কন্টেইনার) যা পরস্পরকে ছেদ করে। এখানে কন্টেইনারটি উপরে, অর্থাৎ
+হোস্ট সিস্টেমের উপরে অবস্থান করে।</p>
+
+<h2 id="ব্যবহার">ব্যবহার</h2>
+
+<ul>
+  <li><a href="/docs/pix/manpage">ম্যানপেজ সহায়িকা</a></li>
+</ul>
+</div>
+      </article>
+    </main>
+    <script>
+    autosummary("article", "aside>.summary>ul");
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <title></title>
+<link rel="stylesheet" href="/assets/css/index.css">
+<script type="text/javascript" src="/assets/js/autosummary.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  <body>
+    <main>
+      <aside>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="https://github.com/KOOMPI-OS/documentation">Source Code</a>
+          </li>
+          <li>
+            <a href="https://koompi.org/">Website</a>
+          </li>
+        </ul>
+        <div class="summary">
+          <b>Summary</b>
+          <ul>
+              <li>Loading...</li>
+          </ul>
+        </div>
+      </aside>
+      <article>
+        <div class="container"><h1 id="koompi-os">KOOMPI OS</h1>
+
+<p>Doświadcz czystego GNOME na Ubuntu ze szczyptą charakteru.</p>
+
+<h2 id="faq">FAQ</h2>
+
+<p>Odpowiedzi na najczęściej zadawane pytania (chociaż projekt wciąż jest bardzo młody).</p>
+<ul>
+  <li><strong>Dlaczego nowa dystrybucja?</strong><br />
+KOOMPI OS powstało z potrzeby stworzenia dystrybucji Linuksa opartej na Ubuntu, 
+która dostarczałaby czyste GNOME bez żadnych zmian w końcowym doświadczeniu 
+użytkownika (user experience). Później jego zakres został rozszerzony, aby 
+poeksperymentować z niektórymi narzędziami i technologiami, takimi jak Almost 
+(niezmienność na żądanie) i pix (podsystem oparty na Distroboxie).</li>
+  <li><strong>Czy wykorzystuje ona OSTree?</strong><br />
+Nie. KOOMPI OS osiąga niezmienność poprzez <a href="https://github.com/koompi-os/almost"><code class="language-plaintext highlighter-rouge">almost</code></a>. 
+Napisaliśmy to narzędzie z myślą o niezmienności na żądanie opartej na atrybucie 
+“immutability” plików. To podejście działa na każdym schemacie partycji/systemie plików. 
+Wsparcie dla OSTree może zostać dodane jeszcze w przyszłości.</li>
+  <li><strong>Czy rozwijana jest na bazie modelu “rolling release”?</strong><br />
+Nie. KOOMPI OS posiada tradycyjny model wydawania aktualizacji i podąża za 
+modelem aktualizacji używanym w Ubuntu.</li>
+</ul>
+
+<h2 id="sekcje">Sekcje</h2>
+
+<ul>
+  <li>
+    <p><strong><a href="/docs/almost">Niezmienność (<code class="language-plaintext highlighter-rouge">almost</code>)</a></strong><br />
+Almost to narzędzie dla niezmienności na życzenie oparte na atrybucie “immutability” plików.</p>
+  </li>
+  <li>
+    <p><strong><a href="/docs/pix">Menedżer pakietów (<code class="language-plaintext highlighter-rouge">pix</code>)</a></strong><br />
+pix jest menedżerem pakietów, który pozwala na instalację i zarządzanie pakietami 
+w zarządzanym kontenerze, bez wpływu na system hosta. Czasami możliwe jest użycie 
+<code class="language-plaintext highlighter-rouge">pix</code> do instalacji pakietów również na systemie hosta.</p>
+  </li>
+</ul>
+</div>
+      </article>
+    </main>
+    <script>
+    autosummary("article", "aside>.summary>ul");
+</script>
+
+  </body>
+</html>

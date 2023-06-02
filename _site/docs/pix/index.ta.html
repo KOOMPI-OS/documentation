@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <title></title>
+<link rel="stylesheet" href="/assets/css/index.css">
+<script type="text/javascript" src="/assets/js/autosummary.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  <body>
+    <main>
+      <aside>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="https://github.com/KOOMPI-OS/documentation">Source Code</a>
+          </li>
+          <li>
+            <a href="https://koompi.org/">Website</a>
+          </li>
+        </ul>
+        <div class="summary">
+          <b>Summary</b>
+          <ul>
+              <li>Loading...</li>
+          </ul>
+        </div>
+      </aside>
+      <article>
+        <div class="container"><h1 id="தொகுப்பு-மேலாளர்-pix">தொகுப்பு மேலாளர் (<code class="language-plaintext highlighter-rouge">pix</code>)</h1>
+
+<p><code class="language-plaintext highlighter-rouge">pix</code> என்பது வெண்ணிலா OS தொகுப்பு மேலாளர் ஆகும், இது ரூட் கோப்பு முறைமையை மாற்றாமல் கன்டெய்னர்களுக்குள் பல ஆதாரங்களில் இருந்து தொகுப்புகளை நிறுவும் ஆதரவுடன் பயன்படுத்த எளிதானது.</p>
+
+<h2 id="எப்படி-இது-செயல்படுகிறது">எப்படி இது செயல்படுகிறது</h2>
+
+<p><code class="language-plaintext highlighter-rouge">pix</code> தொகுப்பு நிர்வாகத்தில் ஒரு புதிய முன்னுதாரணத்தை அறிமுகப்படுத்துகிறது. உங்கள் கணினியை உங்கள் கோப்புகளை சேமிப்பதற்கான ஒரு பெட்டியாக மட்டுமே பயன்படுத்த வேண்டும், இது பேக்கேஜ்களை சுத்தமாக விட்டுவிட்டு, இணக்கமற்ற, மோசமாக கட்டமைக்கப்பட்ட அல்லது முரண்பட்ட தொகுப்புகள் காரணமாக உடைந்து போகும் அபாயத்தைக் கட்டுப்படுத்துகிறது.</p>
+
+<p>ஒரே இயக்கிகள், காட்சி சேவையகம் போன்றவற்றைப் பயன்படுத்தும்போது, உங்கள் கணினியின் ஆதாரங்களுக்கான அணுகலைக் கட்டுப்படுத்தி, <code class="language-plaintext highlighter-rouge">pix</code> ஆல் முழுமையாக நிர்வகிக்கப்படும் ஒன்று அல்லது அதற்கு மேற்பட்ட கொள்கலன்களுக்குள் மென்பொருளை நிறுவுவதன் மூலம் இது செய்யப்படுகிறது.</p>
+
+<p>உங்கள் ஹோம் டைரக்டரி கண்டெய்னருக்குள் மேப் செய்யப்பட்டிருப்பதால், உங்கள் உள்ளமைவு கோப்புகள், விருப்பத்தேர்வுகள் மற்றும் நிறுவப்பட்ட தொகுப்புகளுக்குத் தேவையான பிற முக்கியத் தரவை நீங்கள் அணுகலாம், அத்துடன் நிறுவப்பட்ட மென்பொருளிலிருந்து உங்கள் கோப்புகளை அணுகலாம், எ.கா. LibreOffice இல் கோப்பை திறப்பதன் மூலம்.</p>
+
+<h3 id="புரவலன்-அமைப்பு">புரவலன் அமைப்பு</h3>
+
+<h3 id="ஹோஸ்ட்-சிஸ்டம்">ஹோஸ்ட் சிஸ்டம்</h3>
+
+<p>ஹோஸ்டில் மென்பொருளை நிறுவுவது திட்டத்தின் சித்தாந்தத்திற்கு எதிரானது என்றாலும், அது இன்றியமையாத சந்தர்ப்பங்கள் உள்ளன. உதாரணமாக, உங்களுக்கு தேவைப்படும்போது
+கர்னல் தொகுதி அல்லது இயக்கியை நிறுவவும்.</p>
+
+<p>இது போன்ற சமயங்களில், கொள்கலனைக் கடந்து நேரடியாக ஹோஸ்டில் நிறுவ <code class="language-plaintext highlighter-rouge">abroot exec apt install &lt;package_name&gt;*</code> அல்லது <code class="language-plaintext highlighter-rouge">abroot shell apt install &lt;package_name&gt;</code> கட்டளையைப் பயன்படுத்தலாம், <em>ஆனால் இது பரிந்துரைக்கப்படவில்லை என்பதை அறிந்து கொள்ளவும்.</em></p>
+
+<h3 id="பல-ஆதாரங்கள்">பல ஆதாரங்கள்</h3>
+
+<p>இயல்பாக, <code class="language-plaintext highlighter-rouge">pix</code> உங்கள் லினக்ஸ் விநியோகத்தின் அடிப்படையில் ஒரு கொள்கலனை வழங்குகிறது (வெண்ணிலா OS 22.10க்கான Ubuntu 22.10) மற்றும் விநியோகத்தின் தொகுப்பு மேலாளரிடமிருந்து (Ubuntu க்கு <code class="language-plaintext highlighter-rouge">apt</code>) அனைத்து கட்டளைகளையும் மூடுகிறது.</p>
+
+<p>இருப்பினும், நீங்கள் மற்ற விநியோகங்களில் இருந்து தொகுப்புகளை நிறுவலாம். எடுத்துக்காட்டாக, <code class="language-plaintext highlighter-rouge">--aur</code> கொடியைப் பயன்படுத்தி, புதியது
+ஆர்ச் லினக்ஸை அடிப்படையாகக் கொண்ட கொள்கலன் உருவாக்கப்படும். இங்கே, <code class="language-plaintext highlighter-rouge">pix</code> AUR (மற்றும் Pacman) இலிருந்து தொகுப்புகளை நிர்வகிக்கும், அவற்றை ஹோஸ்ட் சிஸ்டத்துடன் இறுக்கமாக ஒருங்கிணைக்கும். <code class="language-plaintext highlighter-rouge">--dnf</code> கொடியை <code class="language-plaintext highlighter-rouge">pix</code> உடன் பயன்படுத்துவது ஃபெடோரா லினக்ஸ் அடிப்படையில் ஒரு புதிய கொள்கலனை உருவாக்கும். இங்கே, <code class="language-plaintext highlighter-rouge">pix</code> ஃபெடோராவின் DNF களஞ்சியத்திலிருந்து தொகுப்புகளை நிர்வகிக்கும், அவற்றை ஹோஸ்ட் சிஸ்டத்துடன் இறுக்கமாக ஒருங்கிணைக்கும். <code class="language-plaintext highlighter-rouge">pix</code> கண்டெய்னர்களுக்குள் உருவாக்கப்பட்ட GUI தொகுப்புகளுக்கு,<code class="language-plaintext highlighter-rouge">.desktop</code> கோப்புகள் தானாகவே உருவாக்கப்பட்டு பயன்பாடுகள் மெனுவில் பயன்பாட்டின் பெயருக்கு அடுத்ததாக ஒரு கொள்கலன் காட்டியுடன் சேர்க்கப்படும். கொள்கலன்களுக்குள் நிறுவப்பட்ட GUI தொகுப்புகள் [வெண்ணிலா கட்டுப்பாட்டு மையத்தில்] (/docs/vanilla-control-center) துணை அமைப்பு பிரிவில் காட்டப்படும்.</p>
+
+<p>தரக் கட்டுப்பாட்டிற்காக, குறிப்பிட்ட செயலாக்கங்களுக்கு மட்டுமே இந்த அம்சத்தை வரம்பிடுகிறோம். தற்போது, <code class="language-plaintext highlighter-rouge">--aur</code> மற்றும் <code class="language-plaintext highlighter-rouge">--dnf</code> கொடிகள் மட்டுமே ஆதரிக்கப்படுகின்றன, ஆனால் எதிர்காலத்தில் Nix தொகுப்பு நிர்வாகிக்கும் ஆதரவைச் செயல்படுத்த திட்டமிட்டுள்ளோம்.</p>
+
+<h3 id="பெயர்">பெயர்</h3>
+
+<p><code class="language-plaintext highlighter-rouge">pix</code> என்ற பெயர் டெபியன் மற்றும் அதன் வழித்தோன்றல்களால் பயன்படுத்தப்படும் தொகுப்பு மேலாளரான <strong>apt (மேம்பட்ட பேக்கேஜிங் கருவி/ Advanced Packaging Tool)</strong> என்பதிலிருந்து வந்தது. <strong>X</strong> இரண்டு கோடுகள் (புரவலன் மற்றும் கொள்கலன்) ஒன்றுடன் ஒன்று உள்ளது, அங்கு கொள்கலன் மேலே உள்ளது, அதாவது இது ஹோஸ்ட் அமைப்பின் மேல் உள்ளது.</p>
+
+<h2 id="பயன்பாடு">பயன்பாடு</h2>
+
+<ul>
+  <li><a href="/docs/pix/manpage">மேன் பக்கம்</a></li>
+</ul>
+</div>
+      </article>
+    </main>
+    <script>
+    autosummary("article", "aside>.summary>ul");
+</script>
+
+  </body>
+</html>

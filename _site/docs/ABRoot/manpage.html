@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <title>Manpage ABRoot - KOOMPI OS</title>
+<link rel="stylesheet" href="/assets/css/index.css">
+<script type="text/javascript" src="/assets/js/autosummary.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  <body>
+    <main>
+      <aside>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="https://github.com/KOOMPI-OS/documentation">Source Code</a>
+          </li>
+          <li>
+            <a href="https://koompi.org/">Website</a>
+          </li>
+        </ul>
+        <div class="summary">
+          <b>Summary</b>
+          <ul>
+              <li>Loading...</li>
+          </ul>
+        </div>
+      </aside>
+      <article>
+        <div class="container"><h1 id="manpage-abroot">Manpage <code class="language-plaintext highlighter-rouge">abroot</code></h1>
+
+<h2 id="name">NAME</h2>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ABRoot is a utility that provides complete immutability and atomicity by transacting between 2 root partitions (A⟺B), it also allows for on-demand transactions via a transactional shell.
+</code></pre></div></div>
+
+<h2 id="synopsis">SYNOPSIS</h2>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>abroot [options] [command]
+</code></pre></div></div>
+
+<h2 id="description">DESCRIPTION</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Usage:
+    abroot [options] [command]
+
+Options:
+    --help/-h       show this message
+    --verbose/-v        show more verbosity
+    --version/-V        show version
+
+Commands:
+    _update-boot    update the boot partition (for advanced users only)
+    get             outputs the present or future root partition state
+    shell           enter a transactional shell in the future root partition and switch root on the next boot
+    exec            execute a command in a transactional shell in the future root partition and switch to it on the next boot
+</code></pre></div></div>
+
+<h2 id="exec">EXEC</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Execute a command in a transactional shell in the future root partition and switch to it on the next boot.
+
+Usage:
+    exec [command]
+
+Options:
+    --help/-h           show this message
+    --assume-yes/-y     assume yes to all questions
+
+Examples:
+    abroot exec ls -l /
+    abroot exec apt install git 
+</code></pre></div></div>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Tip: You can enclose multiple commands using "" and pass it as a single string.
+</code></pre></div></div>
+
+<h3 id="get">GET</h3>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Outputs the present or future root partition state (A or B).
+
+Usage:
+    get [state]
+
+Options:
+    --help/-h       show this message
+
+States:
+    present     get the present root partition state
+    future      get the future root partition state
+
+Examples:
+    abroot get present
+    abroot get future
+</code></pre></div></div>
+
+<h2 id="shell">SHELL</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Enter a transactional shell in the future root partition and switch root on the next boot.
+
+Usage:
+    shell
+
+Options:
+    --help/-h           show this message
+    --assume-yes/-y     assume yes to all questions
+
+Examples:
+    abroot shell
+</code></pre></div></div>
+
+<h2 id="update-boot">UPDATE BOOT</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Update the boot partition for maintenance purposes (for advanced users only).
+
+Usage:
+    _update-boot
+
+Options:
+    --help/-h           show this message
+    --assume-yes/-y     assume yes to all questions
+</code></pre></div></div>
+
+<h2 id="see-also">SEE ALSO</h2>
+
+<ul>
+  <li><a href="/docs/pix"><code class="language-plaintext highlighter-rouge">pix</code></a></li>
+  <li><a href="/docs/kso"><code class="language-plaintext highlighter-rouge">kso</code></a></li>
+</ul>
+
+<h2 id="author">AUTHOR</h2>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Contributors of KOOMPI OS
+</code></pre></div></div>
+
+<h2 id="reporting-bugs">REPORTING BUGS</h2>
+
+<p>Report bugs to the <a href="https://github.com/koompi-os/ABRoot/issues">issue tracker</a>.</p>
+</div>
+      </article>
+    </main>
+    <script>
+    autosummary("article", "aside>.summary>ul");
+</script>
+
+  </body>
+</html>

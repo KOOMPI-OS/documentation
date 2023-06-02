@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <title></title>
+<link rel="stylesheet" href="/assets/css/index.css">
+<script type="text/javascript" src="/assets/js/autosummary.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  <body>
+    <main>
+      <aside>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="https://github.com/KOOMPI-OS/documentation">Source Code</a>
+          </li>
+          <li>
+            <a href="https://koompi.org/">Website</a>
+          </li>
+        </ul>
+        <div class="summary">
+          <b>Summary</b>
+          <ul>
+              <li>Loading...</li>
+          </ul>
+        </div>
+      </aside>
+      <article>
+        <div class="container"><h1 id="manual-de-almost">Manual de <code class="language-plaintext highlighter-rouge">almost</code></h1>
+
+<h2 id="nombre">NOMBRE</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>almost - una herramienta de inmutabilidad bajo demanda y capas basada en el atributo de archivo (i)nmutable y tmpfs.
+</code></pre></div></div>
+
+<h2 id="sinopsis">SINOPSIS</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>almost [OPCIÓNES] [COMANDO] [ARGUMENTOS]
+</code></pre></div></div>
+
+<h2 id="descripción">DESCRIPCIÓN</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>almost es una utilidad que provee inmutabilidad bajo demanda alternando la inmutabilidad de los archivos y directorios en la raíz del sistema. También provee una forma de crear capas por encima de los directorios inmutables, permitiendo probar cambios antes de cometerlos.
+
+Opciónes:
+    --help/-h       muestra este mensaje
+    --verbose/-v        salida detallada
+    --version/-V        muestra la versión
+    
+Comandos:
+    enter       configura el sistema de archivos como sólo-lectura o lectura-escritura hasta el próximo reinicio
+    config      muestra la configuración actual
+    check       revisa si el sistema de archivos está en modo sólo-lectura o lectura-escritura
+    run     corre un comando en modo lectura-escritura y regresa al modo sólo-lectura después de que el comando termine
+</code></pre></div></div>
+
+<h2 id="enter-entrar">ENTER (entrar)</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Configura el sistema de archivos como sólo-lectura o lectura-escritura hasta el próximo reinicio.
+
+Configurar el sistema de archivos como lectura-escritura puede ser considerado un riesgo de seguridad. Sea cuidadoso cuando use este comando.
+
+Uso:
+    enter [opciónes] [comando]
+
+Opciónes:
+    --help/-h      muestra este mensaje
+    --verbose/-v        salida detallada
+
+Comandos:
+    ro      configura el sistema de archivos como sólo-lectura
+    rw      configura el sistema de archivos como lectura-escritura
+    default     configura el sistema de archivos como está definido en el archivo de configuración
+
+Ejemplos:
+    almost enter ro
+    almost enter rw
+</code></pre></div></div>
+
+<h2 id="config-configurar">CONFIG (configurar)</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Administra y muestra la configuración actual.
+
+Uso:
+    config [opciónes] [comando]
+
+Opciónes:
+    --help/-h       muestra este mensaje
+
+Comandos:
+    set [clave] [valor]     Configura un valor de la configuración
+
+Ejemplos:
+    almost config
+    almost config set Almost::DefaultMode 1
+</code></pre></div></div>
+
+<h2 id="check-checarrevisar">CHECK (checar/revisar)</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Revisa si el sistema de archivos está en modo sólo-lectura o lectura-escritura.
+
+Uso:
+    check [opciónes] [comando]
+
+Opciónes:
+    --help/-h        muestra este mensaje
+
+Ejemplos:
+    almost check
+</code></pre></div></div>
+
+<h2 id="run-correrejecutar">RUN (correr/ejecutar)</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Corre un comando en modo lectura-escritura y regresa al modo sólo-lectura después de que el comando termine.
+
+Uso:
+    run [comando]
+
+Opciónes:
+    --help/-h        muestra este mensaje
+    --verbose/-v    salida detallada
+
+Ejemplos:
+    almost run ls
+</code></pre></div></div>
+
+<h2 id="vea-también">VEA TAMBIÉN</h2>
+
+<ul>
+  <li><a href="/docs/pix"><code class="language-plaintext highlighter-rouge">pix</code></a></li>
+</ul>
+
+<h2 id="diagnósticos">DIAGNÓSTICOS</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>almost regresa 0 en éxito, 1 en error.
+</code></pre></div></div>
+
+<h2 id="autor">AUTOR</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Contribuidores de KOOMPI OS
+Traducción al español por @MasterGeekMX
+</code></pre></div></div>
+
+<h2 id="reportando-errores">REPORTANDO ERRORES</h2>
+
+<p>Reportar los errores al <a href="https://github.com/koompi-os/almost/issues">rastreador de problemas</a>.</p>
+</div>
+      </article>
+    </main>
+    <script>
+    autosummary("article", "aside>.summary>ul");
+</script>
+
+  </body>
+</html>

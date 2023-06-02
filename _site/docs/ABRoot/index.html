@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <title>Immutability (ABRoot) - KOOMPI OS</title>
+<link rel="stylesheet" href="/assets/css/index.css">
+<script type="text/javascript" src="/assets/js/autosummary.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  <body>
+    <main>
+      <aside>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="https://github.com/KOOMPI-OS/documentation">Source Code</a>
+          </li>
+          <li>
+            <a href="https://koompi.org/">Website</a>
+          </li>
+        </ul>
+        <div class="summary">
+          <b>Summary</b>
+          <ul>
+              <li>Loading...</li>
+          </ul>
+        </div>
+      </aside>
+      <article>
+        <div class="container"><h1 id="immutability-abroot">Immutability (<code class="language-plaintext highlighter-rouge">abroot</code>)</h1>
+
+<p><code class="language-plaintext highlighter-rouge">abroot</code> is a utility that provides complete immutability and atomicity by making transactions between 2 root partitions (A⟺B), it also allows for on-demand transactions via a transactional shell.</p>
+
+<h2 id="how-it-works">How it works</h2>
+
+<p>The Linux file system is a hierarchical file structure containing root and other directories. 
+Root is the primary hierarchical directory containing all other partitions.
+In immutable file systems, the root partition is read-only, preventing the installation of essential packages, such as drivers in the host.</p>
+
+<p><code class="language-plaintext highlighter-rouge">abroot</code> allows you to install kernel modules, drivers and other essential packages without compromising the filesystem’s immutability.</p>
+
+<p>When a command gets executed in <code class="language-plaintext highlighter-rouge">abroot</code>, a transaction gets started in the transactional shell in the second root partition. If the transaction succeeds, the changes are applied using an overlay and synced with the current root on reboot. If the transaction fails, no changes are applied (due to a property known as atomicity). <code class="language-plaintext highlighter-rouge">abroot</code> also allows for on-demand transactions using the <code class="language-plaintext highlighter-rouge">abroot shell</code> command.</p>
+
+<p>KOOMPI OS installations create root and boot partitions for both states (20GB per root partition) as it is a requirement for <code class="language-plaintext highlighter-rouge">abroot</code>.</p>
+
+<h2 id="states">States</h2>
+
+<p><code class="language-plaintext highlighter-rouge">abroot</code> has two states - present and future. When you are in your KOOMPI OS installation for the first time, the present state is A. When you reboot your system, the state automatically switches to B. When you install a package using <code class="language-plaintext highlighter-rouge">abroot</code>,  it gets installed in the future root partition and synced with the current root partition upon reboot.</p>
+
+<h2 id="updates">Updates</h2>
+
+<p><code class="language-plaintext highlighter-rouge">abroot</code> powers the <code class="language-plaintext highlighter-rouge">kso</code> utility allowing for smart automatic updates and installation of updates in the background in the future root partition, thus saving time as an offline update during reboot isn’t required.</p>
+
+<h2 id="kernel-parameters">Kernel parameters</h2>
+
+<p><code class="language-plaintext highlighter-rouge">abroot</code> allows setting custom kernel parameters in case a driver or custom setup requires it. By default, <code class="language-plaintext highlighter-rouge">abroot</code> reads the contents of <code class="language-plaintext highlighter-rouge">/etc/default/abroot_kargs</code>, which must <strong>not</strong> be edited. Instead, you should use the provided command to manage your parameters:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo abroot kargs edit
+</code></pre></div></div>
+
+<p>The command above will open the parameters file in your default command-line text editor (<code class="language-plaintext highlighter-rouge">nano</code> by default), but you can override it by using the <code class="language-plaintext highlighter-rouge">$EDITOR</code> environment variable before the command. So, for example, if you want to edit the arguments using <code class="language-plaintext highlighter-rouge">vim</code>, you can run <code class="language-plaintext highlighter-rouge">sudo EDITOR=vim abroot kargs edit</code>.</p>
+
+<p><a href="https://www.kernel.org/doc/html/v4.14/admin-guide/kernel-parameters.html">Kernel parameters</a> must be separated by spaces and should <strong>not</strong> have line breaks between them. Furthermore, you should not remove the default parameters unless you know what you’re doing, as changing them could make your system unbootable.</p>
+
+<p><strong>NOTE</strong>: The kernel parameters are applied only to your future root, so you can always enter the previous root in case something goes wrong.</p>
+
+<h2 id="naming">Naming</h2>
+
+<p>ABRoot’s name refers to the two transacting root partitions A and B (A⟺B).</p>
+
+<h2 id="usage">Usage</h2>
+
+<ul>
+  <li><a href="/docs/ABRoot/manpage">Manpage</a></li>
+  <li><a href="/docs/ABRoot/porting">Porting to your distribution</a></li>
+</ul>
+</div>
+      </article>
+    </main>
+    <script>
+    autosummary("article", "aside>.summary>ul");
+</script>
+
+  </body>
+</html>

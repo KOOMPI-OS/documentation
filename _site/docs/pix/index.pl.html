@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <title></title>
+<link rel="stylesheet" href="/assets/css/index.css">
+<script type="text/javascript" src="/assets/js/autosummary.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  <body>
+    <main>
+      <aside>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="https://github.com/KOOMPI-OS/documentation">Source Code</a>
+          </li>
+          <li>
+            <a href="https://koompi.org/">Website</a>
+          </li>
+        </ul>
+        <div class="summary">
+          <b>Summary</b>
+          <ul>
+              <li>Loading...</li>
+          </ul>
+        </div>
+      </aside>
+      <article>
+        <div class="container"><h1 id="menedżer-pakietów-pix">Menedżer pakietów (<code class="language-plaintext highlighter-rouge">pix</code>)</h1>
+
+<p><code class="language-plaintext highlighter-rouge">pix</code> jest menedżerem pakietów KOOMPI OS. Ma być łatwy w użyciu, ale także 
+potężny z obsługą instalacji pakietów z wielu źródeł bez zmiany głównego 
+systemu plików.</p>
+
+<h2 id="jak-to-działa">Jak to działa</h2>
+
+<p><code class="language-plaintext highlighter-rouge">pix</code> wprowadza zupełnie nowy paradygmat w zarządzaniu pakietami. Idea polega 
+na używaniu systemu tylko jako pudełka do przechowywania plików, pozostawiając 
+go czystym od pakietów i ograniczając ryzyko uszkodzenia z powodu niekompatybilnych, 
+źle skonstruowanych lub konfliktujących pakietów.</p>
+
+<p>Odbywa się to poprzez instalację oprogramowania wewnątrz jednego lub większej 
+ilości “zarządzanych” kontenerów, które są w pełni zarządzane przez <code class="language-plaintext highlighter-rouge">pix</code> i mają 
+ograniczony dostęp do zasobów systemu, podczas gdy nadal mogą korzystać z 
+tych samych sterowników, serwera wyświetlania, itp.</p>
+
+<p>Twój katalog domowy jest mapowany wewnątrz kontenera, więc masz dostęp do 
+swoich plików konfiguracyjnych, preferencji i innych ważnych danych potrzebnych 
+zainstalowanym pakietom, jak również możesz mieć dostęp do własnych plików z 
+zainstalowanego oprogramowania, np. otwierając plik w LibreOffice.</p>
+
+<h3 id="system-hosta">System hosta</h3>
+
+<p>Podczas gdy instalowanie oprogramowania na hoście jest sprzeczne z ideologią 
+projektu, istnieją przypadki, w których nie można tego uniknąć, na przykład 
+gdy trzeba zainstalować moduł jądra.</p>
+
+<p>W takich przypadkach można użyć flagi <code class="language-plaintext highlighter-rouge">--sys</code> aby ominąć kontener i zainstalować 
+bezpośrednio na hoście, <em>ale pamiętaj, że nie jest to zalecane</em>. <code class="language-plaintext highlighter-rouge">pix</code> działa 
+z <a href="/docs/almost"><code class="language-plaintext highlighter-rouge">almost</code></a> by tymczasowo wyłączyć niezmienność, pozwalając na 
+zainstalowanie potrzebnych pakietów i późniejsze przywrócenie systemu.</p>
+
+<h3 id="wiele-źródeł">Wiele źródeł</h3>
+
+<p>Domyślnie, <code class="language-plaintext highlighter-rouge">pix</code> zapewnia kontener oparty na Twojej dystrybucji Linuksa (Ubuntu 
+22.10 dla KOOMPI OS 22.10) i opakowuje wszystkie polecenia z menedżera pakietów 
+dystrybucji (<code class="language-plaintext highlighter-rouge">apt</code> dla Ubuntu).</p>
+
+<p>Niemniej jednak nadal można zainstalować pakiety z innych dystrybucji używając 
+innych menedżerów pakietów, na przykład używając flagi <code class="language-plaintext highlighter-rouge">--aur</code>, zostanie utworzony 
+drugi kontener oparty na Arch Linux. Tutaj <code class="language-plaintext highlighter-rouge">pix</code> będzie zarządzał oprogramowaniem 
+z AUR (i Pacmana), zawsze integrując je z systemem hosta.</p>
+
+<p>Dla potrzeb kontroli jakości i testowania, zdecydowaliśmy się ograniczyć tę funkcję 
+do konkretnych implementacji. Obecnie obsługiwana jest tylko flaga <code class="language-plaintext highlighter-rouge">--aur</code>, ale 
+planujemy zaimplementować także wsparcie dla menedżera pakietów Nix.</p>
+
+<h3 id="nazwa">Nazwa</h3>
+
+<p>Nazwa <code class="language-plaintext highlighter-rouge">pix</code> pochodzi od <strong>apt (Advanced Packaging Tool)</strong>, menedżera pakietów 
+używanego przez Debiana i jego pochodne, oraz <strong>X</strong>, który powinien być postrzegany 
+jako 2 linie (hosta i kontenera) nakładające się na siebie, gdzie kontener jest na 
+górze, co oznacza, że jest na wierzchu systemu hosta.</p>
+
+<h2 id="użytek">Użytek</h2>
+
+<ul>
+  <li><a href="/docs/pix/manpage">Manpage</a></li>
+</ul>
+</div>
+      </article>
+    </main>
+    <script>
+    autosummary("article", "aside>.summary>ul");
+</script>
+
+  </body>
+</html>

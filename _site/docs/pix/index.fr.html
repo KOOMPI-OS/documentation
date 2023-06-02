@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <title></title>
+<link rel="stylesheet" href="/assets/css/index.css">
+<script type="text/javascript" src="/assets/js/autosummary.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  <body>
+    <main>
+      <aside>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="https://github.com/KOOMPI-OS/documentation">Source Code</a>
+          </li>
+          <li>
+            <a href="https://koompi.org/">Website</a>
+          </li>
+        </ul>
+        <div class="summary">
+          <b>Summary</b>
+          <ul>
+              <li>Loading...</li>
+          </ul>
+        </div>
+      </aside>
+      <article>
+        <div class="container"><h1 id="gestionnaire-de-paquets-pix">Gestionnaire de paquets (<code class="language-plaintext highlighter-rouge">pix</code>)</h1>
+
+<p><code class="language-plaintext highlighter-rouge">pix</code> est le gestionnaire de paquets de KOOMPI OS. Il est conçu pour être simple d’utilisation, 
+mais également puissant avec la prise en charge de l’installation de paquets depuis de multiples sources sans altérations du système de fichiers racine.</p>
+
+<h2 id="comment-ça-marche">Comment ça marche</h2>
+
+<p><code class="language-plaintext highlighter-rouge">pix</code> introduit un tout nouveau paradigme dans la gestion des paquets. 
+L’idée est d’utiliser votre système uniquement comme une boîte pour stocker vos fichiers,
+en le laissant propre de tout paquets, limitant ainsi le risque de casse dû 
+à des paquets incompatibles, mal construits ou conflictuels.</p>
+
+<p>Ceci est réalisé en installant les logiciels à l’intérieur d’un ou plusieurs conteneurs “gérés”, 
+qui sont entièrement pris en charge par <code class="language-plaintext highlighter-rouge">pix</code> et qui ont un accès restreint aux ressources de votre système, 
+tout en étant capable d’utiliser les mêmes pilotes, serveur d’affichage, etc.</p>
+
+<p>Votre répertoire personnel est mappé à l’intérieur du conteneur, 
+vous pouvez donc accéder à vos fichiers de configuration, vos préférences et autres données vitales nécessaires aux paquets installés, ainsi qu’à vos propres fichiers depuis les logiciels
+installés, par exemple en ouvrant un fichier dans LibreOffice.</p>
+
+<h3 id="système-hôte">Système hôte</h3>
+
+<p>Bien que l’installation de logiciels sur l’hôte soit contraire à l’idéologie du projet, 
+il existe des cas où cela ne peut être évité, par exemple lorsque vous devez 
+installer un module de noyau.</p>
+
+<p>Dans de tels cas, vous pouvez utiliser le drapeau <code class="language-plaintext highlighter-rouge">--sys</code> pour contourner le conteneur et 
+installer directement sur l’hôte, <em>mais sachez que ce n’est pas recommandé</em>. <code class="language-plaintext highlighter-rouge">pix</code> 
+fonctionne avec <a href="/docs/almost"><code class="language-plaintext highlighter-rouge">almost</code></a> pour désactiver temporairement l’immutabilité, 
+vous permettant d’installer les paquets nécessaires et de restaurer le système par la suite.</p>
+
+<h3 id="sources-multiples">Sources multiples</h3>
+
+<p>Par défaut, <code class="language-plaintext highlighter-rouge">pix</code> fournit un conteneur basé sur votre distribution Linux (Ubuntu 22.10 pour KOOMPI OS 22.10) 
+et englobe toutes les commandes du gestionnaire de paquets de la distribution (<code class="language-plaintext highlighter-rouge">apt</code> pour Ubuntu).</p>
+
+<p>Néanmoins, il est toujours possible d’installer des paquets provenant d’autres distributions 
+en utilisant d’autres gestionnaires de paquets. Par exemple, en utilisant le drapeau <code class="language-plaintext highlighter-rouge">--aur</code>, 
+un deuxième conteneur basé sur Arch Linux sera créé. 
+Ici, <code class="language-plaintext highlighter-rouge">pix</code> va gérer les logiciels de l’AUR (et de Pacman), toujours en l’intégrant au système hôte.</p>
+
+<p>Pour des raisons de contrôle de qualité et de tests, nous avons choisi de limiter cette fonctionnalité 
+à des implémentations spécifiques. Actuellement, seul le drapeau <code class="language-plaintext highlighter-rouge">--aur</code> est supporté, mais 
+mais nous prévoyons également d’implémenter le support pour le gestionnaire de paquets Nix.</p>
+
+<h3 id="le-nom">Le nom</h3>
+
+<p>Le nom <code class="language-plaintext highlighter-rouge">pix</code> provient de <strong>apt (Advanced Packaging Tool)</strong>, le gestionnaire de paquets utilisé par Debian et ses dérivés, et <strong>X</strong>, qui doit être vu comme 
+2 lignes (hôte et conteneur) qui se chevauchent, où le conteneur est au dessus, 
+ce qui signifie qu’il se trouve au-dessus du système hôte.</p>
+
+<h2 id="utilisation">Utilisation</h2>
+
+<ul>
+  <li><a href="/docs/pix/manpage.fr.md">Guide</a></li>
+</ul>
+</div>
+      </article>
+    </main>
+    <script>
+    autosummary("article", "aside>.summary>ul");
+</script>
+
+  </body>
+</html>

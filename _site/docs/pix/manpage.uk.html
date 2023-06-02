@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <title>pix - Manpage - KOOMPI OS</title>
+<link rel="stylesheet" href="/assets/css/index.css">
+<script type="text/javascript" src="/assets/js/autosummary.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  <body>
+    <main>
+      <aside>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="https://github.com/KOOMPI-OS/documentation">Source Code</a>
+          </li>
+          <li>
+            <a href="https://koompi.org/">Website</a>
+          </li>
+        </ul>
+        <div class="summary">
+          <b>Summary</b>
+          <ul>
+              <li>Loading...</li>
+          </ul>
+        </div>
+      </aside>
+      <article>
+        <div class="container"><h1 id="manpage-pix">Manpage: <code class="language-plaintext highlighter-rouge">pix</code></h1>
+
+<h2 id="найменування">Найменування</h2>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pix - простий у використанні менеджер пакунків KOOMPI OS з підтримкою встановлення пакунків з декількох джерел
+всередині контейнерів без зміни кореневої файлової системи.
+</code></pre></div></div>
+
+<h2 id="короткий-опис">Короткий опис</h2>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pix [параметри] [команда] [аргументи]
+</code></pre></div></div>
+
+<h2 id="опис">Опис</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pix - це обгортка для декількох менеджерів пакунків для встановлення пакунків та запуску команд всередині керованого контейнера.
+
+Використання:
+    pix [параметри] [команда] [аргументи]
+
+Параметри:
+    -h, --help      Показати це повідомлення і вийти
+    -v, --version   Показати версію і вийти
+    --aur           Встановити пакунки з репозиторію AUR
+    --dnf           Встановити пакунки з репозиторію Fedora
+
+Команди:
+    autoremove      Видалити всі невикористовувані пакунки
+    clean           Очистити кеш менеджера пакунків pix
+    enter           Увійти у оболонку контейнера
+    export          Експортувати/відновити запис програми на робочому столі з контейнера
+    help            Показати це повідомлення і вийти
+    init            Ініціалізувати керований контейнер
+    install         Встановити пакунки до контейнера
+    list            Перерахувати встановлені пакунки
+    log             Показати журнали
+    purge           Видалити пакунки з контейнера (з видаленням конфігурації)
+    run             Запустити команду всередині контейнера
+    remove          Вилучити пакунки з контейнера
+    search          Пошук пакунків
+    show            Показати детальну інформацію про пакунок
+    unexport        Видалити запис програми на робочому столі
+    update          Оновити список доступних пакунків
+    upgrade         Оновити систему шляхом встановлення/оновлення доступних пакунків
+</code></pre></div></div>
+
+<h2 id="autoremove"><code class="language-plaintext highlighter-rouge">autoremove</code></h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Опис: 
+    Видалити всі невикористовувані пакунки.
+Використання:
+    pix autoremove [options]
+
+Параметри:
+    -h, --help            Показати це повідомлення і вийти
+
+Приклади:
+    pix autoremove
+</code></pre></div></div>
+
+<h2 id="clean"><code class="language-plaintext highlighter-rouge">clean</code></h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Опис: 
+    Очистити кеш менеджера пакунків pix.
+
+Використання:
+    pix clean [options]
+
+Параметри:
+    -h, --help            Показати це повідомлення і вийти
+
+Приклади:
+    pix clean
+</code></pre></div></div>
+
+<h2 id="enter"><code class="language-plaintext highlighter-rouge">enter</code></h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Опис: 
+    Увійти у оболонку контейнера.
+
+Використання:
+    pix enter [options]
+
+Параметри:
+    -h, --help            Показати це повідомлення і вийти
+</code></pre></div></div>
+
+<h2 id="export"><code class="language-plaintext highlighter-rouge">export</code></h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Опис: 
+    Експортувати/відтворити запис програми на робочий стіл з керованого контейнера.
+
+Використання:
+    pix export <span class="nt">&lt;program&gt;</span> [options]
+
+Параметри:
+    -h, --help            Показати це повідомлення і вийти
+
+Приклади:
+    pix export htop
+</code></pre></div></div>
+
+<h2 id="init"><code class="language-plaintext highlighter-rouge">init</code></h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Опис: 
+    Ініціалізація керованого контейнера.
+
+Використання:
+    pix init [options]
+
+Параметри:
+    -h, --help            Показати це повідомлення і вийти
+</code></pre></div></div>
+
+<h2 id="install"><code class="language-plaintext highlighter-rouge">install</code></h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Опис: 
+    Встановлення пакунків всередині керованого контейнера.
+
+Використання:
+    pix install [options] <span class="nt">&lt;packages&gt;</span>
+
+Параметри:
+    -h, --help            Показати це повідомлення і вийти
+    -y, --assume-yes      Продовжити без ручного підтвердження.
+    -f, --fix-broken      Виправити несправні залежності перед установкою.
+    --no-export           Не експортувати запис програми на робочий стіл. 
+    --sideload [path]     Встановлення пакунка з локального файлу.
+
+Приклади:
+    pix install htop git
+    pix install --sideload /path/to/file.deb
+</code></pre></div></div>
+
+<h2 id="list"><code class="language-plaintext highlighter-rouge">list</code></h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Опис: 
+    Перерахувати встановлені пакунки.
+
+Використання:
+    pix list [options]
+
+Параметри:
+    -h, --help            Показати це повідомлення і вийти
+</code></pre></div></div>
+
+<h2 id="purge"><code class="language-plaintext highlighter-rouge">purge</code></h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Опис: 
+    Видалити пакунки з контейнера (з видаленням конфігураційних файлів).
+
+Використання:
+    pix purge <span class="nt">&lt;packages&gt;</span> [options]
+
+Параметри:
+    -h, --help            Показати це повідомлення і вийти
+
+Приклади:
+    pix purge htop
+</code></pre></div></div>
+
+<h2 id="remove"><code class="language-plaintext highlighter-rouge">remove</code></h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Опис:
+    Видалення пакунків всередині керованого контейнера.
+
+Використання:
+    pix remove <span class="nt">&lt;packages&gt;</span> [options]
+
+Параметри:
+    -h, --help            Показати це повідомлення і вийти
+
+Приклади:
+    pix remove htop
+</code></pre></div></div>
+
+<h2 id="run"><code class="language-plaintext highlighter-rouge">run</code></h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Опис: 
+    Запуск програми всередині керованого контейнера.
+
+Використання:
+    pix run <span class="nt">&lt;program&gt;</span> [options]
+
+Параметри:
+    -h, --help            Показати це повідомлення і вийти
+
+Приклади:
+    pix run htop
+</code></pre></div></div>
+
+<h2 id="search"><code class="language-plaintext highlighter-rouge">search</code></h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Опис: 
+    Пошук пакунків у керованому контейнері.
+
+Використання:
+    pix search <span class="nt">&lt;packages&gt;</span> [options]
+
+Параметри:
+    -h, --help            Показати це повідомлення і вийти
+
+Приклади:
+    pix search htop
+</code></pre></div></div>
+
+<h2 id="show"><code class="language-plaintext highlighter-rouge">show</code></h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Опис: 
+    Показати детальну інформацію про пакунок.
+
+Використання:
+    pix show <span class="nt">&lt;package&gt;</span> [options]
+
+Параметри:
+    -h, --help            Показати це повідомлення і вийти
+
+Приклади:
+    pix show htop
+</code></pre></div></div>
+
+<h2 id="unexport"><code class="language-plaintext highlighter-rouge">unexport</code></h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Опис:
+    Видалити елемент робочого столу програми з керованого контейнера.
+
+Використання:
+    pix unexport <span class="nt">&lt;program&gt;</span> [options]
+
+Параметри:
+    -h, --help            Показати це повідомлення і вийти
+
+Приклади:
+    pix unexport htop
+</code></pre></div></div>
+
+<h2 id="update"><code class="language-plaintext highlighter-rouge">update</code></h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Опис: 
+    Оновити список доступних пакунків.
+
+Використання:
+    pix update [options]
+
+Параметри:
+    -h, --help            Показати це повідомлення і вийти
+
+Приклади:
+    pix update
+</code></pre></div></div>
+
+<h2 id="upgrade"><code class="language-plaintext highlighter-rouge">upgrade</code></h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Опис: 
+    Оновлення системи шляхом встановлення/оновлення доступних пакунків.
+
+Використання:
+    pix upgrade [options]
+  
+Параметри:
+    -h, --help            Показати це повідомлення і вийти
+
+Приклади:
+    pix upgrade
+</code></pre></div></div>
+
+<h2 id="version"><code class="language-plaintext highlighter-rouge">version</code></h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Опис:
+    Показати версію pix.
+
+Використання:
+    pix --version
+    pix -v
+</code></pre></div></div>
+
+<h2 id="дивіться-також">Дивіться також</h2>
+
+<ul>
+  <li><a href="/docs/ABRoot/index.uk"><code class="language-plaintext highlighter-rouge">abroot</code></a></li>
+  <li><a href="/docs/kso/index.uk"><code class="language-plaintext highlighter-rouge">kso</code></a></li>
+</ul>
+
+<h2 id="автори">Автори</h2>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Спільнота KOOMPI OS
+Переклад: Сапуцький Петро (@voxelin)
+</code></pre></div></div>
+
+<h2 id="повідомлення-про-помилки">Повідомлення про помилки</h2>
+
+<p>Повідомляйте про баги на <a href="https://github.com/koompi-os/pix/issues">трекері помилок</a>.</p>
+</div>
+      </article>
+    </main>
+    <script>
+    autosummary("article", "aside>.summary>ul");
+</script>
+
+  </body>
+</html>

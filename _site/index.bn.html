@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <title>ভ্যানিলা ওএস নথিপত্র</title>
+<link rel="stylesheet" href="/assets/css/index.css">
+<script type="text/javascript" src="/assets/js/autosummary.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  <body>
+    <main>
+      <aside>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="https://github.com/KOOMPI-OS/documentation">Source Code</a>
+          </li>
+          <li>
+            <a href="https://koompi.org/">Website</a>
+          </li>
+        </ul>
+        <div class="summary">
+          <b>Summary</b>
+          <ul>
+              <li>Loading...</li>
+          </ul>
+        </div>
+      </aside>
+      <article>
+        <div class="container"><h1 id="ভ্যানিলা-ওএস">ভ্যানিলা ওএস</h1>
+
+<p>উবুন্টুর সাথে উপভোগ করুন ভ্যানিলা গ্নোমের স্বাদ, সাথে আছে আরও কিছু চমক।</p>
+
+<p><strong>এই পাতাটি ভ্যানিলা ওএস সংক্রান্ত বিষয়ের জন্য অফিসিয়াল সহায়িকা।</strong><br />
+ব্যবহারকারী কর্তৃক লিখিত সহায়িকা ও টিউটোরিয়াল সমূহ পেতে <a href="https://handbook.vanillaos.org"><strong>হ্যান্ডবুক</strong></a> দেখুন।</p>
+
+<h2 id="প্রশ্নোত্তর">প্রশ্নোত্তর</h2>
+
+<p>ভ্যানিলা ওএস সম্পর্কে সচরাচর উত্থাপিত প্রশ্নগুলোর উত্তর।</p>
+
+<ul>
+  <li>
+    <p><strong>কেন একটি নতুন ডিস্ট্রিবিউশন?</strong><br />
+ভ্যানিলা ওএস এমন একটি উবুন্টু-ভিত্তিক লিনাক্স ডিস্ট্রিবিউশনের শূণ্যস্থান পূরণ করে
+যা ব্যবহারকারী অভিজ্ঞতার কোনো পরিবর্তন ব্যতিরেকে ভ্যানিলা গ্নোম বিতরণ করবে।
+পরবর্তিতে কিছু নতুন টুল ও প্রযুক্তি পরীক্ষা করার স্বার্থে এর পরিকল্পনা বৃদ্ধি করা হয়েছে।
+যেমন এবিরুট ও এপেক্স (ডিস্ট্রোবক্স-ভিত্তিক সাবসিস্টেম)।</p>
+  </li>
+  <li>
+    <p><strong>এটাকি OSTree ব্যবহার করে?</strong><br />
+না। ভ্যানিলা ওএস <a href="https://github.com/koompi-os/ABRoot"><code class="language-plaintext highlighter-rouge">এবিরুট</code></a> ব্যবহার করে অপরিবর্তনীয়তা অর্জন করে। [পূর্বে এটি `অলমোস্ট’-এর মাধ্যমে অর্জিত হতো]। হয়তো ভবিষ্যতে ওএসট্রি ব্যবহারের ব্যাপারটি বিবেচনা করা হতে পারে।</p>
+
+    <p>আমরা ফাইলসমূহের অপরিবর্তনীয়তা বৈশিষ্ট্য ব্যবহার করে চাহিদা-মাফিক অপরিবর্তনীয়তা অর্জনের মাধ্যম ‘অলমোস্ট’ তৈরি করেছিলাম।
+এই প্রচেষ্টাটি যে কোনো ধরণের ফাইল পরিকল্পনা/ ফাইল সিস্টেমে কাজ করেছিলো।</p>
+
+    <p>আমরা একটি নতুন ইউটিলিটি উপস্থাপন করেছি, <a href="https://github.com/koompi-os/ABRoot">এবিরুট</a>। যা পূর্ণ অপরিবর্তনীয়তা ও পারমাণবিকতা অর্জনের মাধ্যম হিসেবে অলমোস্টকে প্রতিস্থাপন করে। এটি ২ টি (A⟺B) রুট বিভাজনের মধ্যে অদলবদল করার মাধ্যমে সম্ভব হয়। এছাড়াও এটি একটি অদলবদলকরণ শেল ব্যবহারের মাধ্যমে চাহিদা মাফিক অদলবদলের সুযোগ দেয়।</p>
+  </li>
+  <li>
+    <p><strong>রোলিং প্রকাশনা?</strong><br />
+না। ভ্যানিলা ওএস একটি স্থির প্রকাশনা এবং উবুন্টু প্রকাশনা চক্রের অনুসরণ করে।</p>
+  </li>
+</ul>
+
+<h2 id="ব্যবহারকারী-সহায়িকাগুলি">ব্যবহারকারী সহায়িকাগুলি</h2>
+
+<ul>
+  <li><strong><a href="https://handbook.vanillaos.org/2022/11/05/installation.html">ইনস্টল করা</a></strong></li>
+  <li><strong><a href="https://handbook.vanillaos.org/2022/11/18/first-setup.html">প্রথম সেটআপ</a></strong></li>
+  <li><strong><a href="https://handbook.vanillaos.org/2022/12/10/updates.html">আপডেটসমূহ</a></strong></li>
+  <li><strong><a href="https://handbook.vanillaos.org/">আরও অন্যান্য</a></strong></li>
+</ul>
+
+<h2 id="মূল-উপাদানগুলির-নথিপত্র">মূল উপাদানগুলির নথিপত্র</h2>
+
+<ul>
+  <li>
+    <p><strong><a href="/docs/pix">এপেক্স</a></strong><br />
+একটি ধারক-ভিত্তিক প্যাকেজ ম্যানেজার যা অন্য সকল ডিস্ট্রিবিউশন থেকে একটি স্যান্ডবক্স পরিবেশে প্যাকেজ ইন্সটলের সুযোগ দেয়।</p>
+  </li>
+  <li>
+    <p><strong><a href="/docs/ABRoot">এবিরুট</a></strong><br />
+এমন এক ইউটিলিটি যা ২ টি (A⟺B) রুট বিভাজনের মধ্যে পূর্ণ পারমানবিক অদলবদল ঘটানোর সুযোগ দেয়।</p>
+  </li>
+  <li><strong><a href="/docs/kso">ভিএসও</a></strong><br />
+এমন এক ইউটিলিটি যা আপনার ভ্যানিলা ওএস ইন্সটলেশনে রক্ষণাবেক্ষণ কাজ সম্পাদন করার সুযোগ দেয়।</li>
+  <li><del><strong><a href="/docs/almost">অলমোস্ট</a></strong></del><br />
+<del>এটি সহজভাবে ফাইল বিশেষণ ‘i’ বদল করার মাধ্যমে আপনার সিস্টেমকে অপরিবর্তনীয় করার সুযোগ দেয়।</del></li>
+</ul>
+
+<h2 id="অবদান-রাখুন">অবদান রাখুন</h2>
+
+<ul>
+  <li><strong><a href="/docs/packaging">প্যাকেজিং</a></strong><br />
+ভ্যানিলা ওএসের জন্য তৈরি অ্যাপসমূহের কিছু বিবেচনা ও নির্দেশিকা অনুসরণ করা আবশ্যক।</li>
+</ul>
+</div>
+      </article>
+    </main>
+    <script>
+    autosummary("article", "aside>.summary>ul");
+</script>
+
+  </body>
+</html>

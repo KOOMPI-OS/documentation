@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <title>Керування ABRoot - KOOMPI OS</title>
+<link rel="stylesheet" href="/assets/css/index.css">
+<script type="text/javascript" src="/assets/js/autosummary.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  <body>
+    <main>
+      <aside>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="https://github.com/KOOMPI-OS/documentation">Source Code</a>
+          </li>
+          <li>
+            <a href="https://koompi.org/">Website</a>
+          </li>
+        </ul>
+        <div class="summary">
+          <b>Summary</b>
+          <ul>
+              <li>Loading...</li>
+          </ul>
+        </div>
+      </aside>
+      <article>
+        <div class="container"><h1 id="manpage-abroot">Manpage: <code class="language-plaintext highlighter-rouge">abroot</code></h1>
+
+<h2 id="найменування">Найменування</h2>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ABRoot - утиліта, яка забезпечує повну незмінність та атомарність шляхом виконання транзакцій між 2 кореневими розділами (A⟺B), а також дозволяє виконувати транзакції на вимогу за допомогою транзакційної оболонки.
+</code></pre></div></div>
+
+<h2 id="короткий-опис">Короткий опис</h2>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>abroot [параметри] [команда]
+</code></pre></div></div>
+
+<h2 id="опис">Опис</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Використання:
+    abroot [параметри] [команда]
+
+Параметри:
+    --help/-h               Показати це повідомлення
+    --verbose/-v            Показати більше багатослівності
+    --version/-V            Показати версію
+
+Команди:
+    _update-boot            Оновити завантажувальний розділ (boot partition) <span class="ge">*[лише для досвідчених користувачів!]*</span>
+    get                     Вивести поточний або майбутній стан кореневого розділу
+    shell                   Увійти до транзакційної оболонки в майбутньому кореневому розділі і переключитися на нього під час наступного завантаження
+    exec                    Виконати команду у транзакційній оболонці у майбутньому кореневому розділі і переключитися на нього під час наступного завантаження
+</code></pre></div></div>
+
+<h2 id="exec"><code class="language-plaintext highlighter-rouge">exec</code></h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Опис:
+    Виконати команду у транзакційній оболонці у майбутньому кореневому розділі і переключитися на нього під час наступного завантаження.
+
+Використання:
+    abroot exec [команда]
+
+Параметри:
+    --help/-h               Показати це повідомлення
+    --assume-yes/-y         Вважати, що ви відповіли "так" на всі запитання
+
+Приклади:
+    abroot exec ls -l /
+    abroot exec apt install git 
+</code></pre></div></div>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Підказка: Ви можете об'єднати декілька команд за допомогою ""(подвійні лапки) і передати їх як один рядок.
+</code></pre></div></div>
+
+<h3 id="get"><code class="language-plaintext highlighter-rouge">get</code></h3>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Опис:
+    Виводить поточний або майбутній стан кореневого розділу (A або B).
+
+Використання:
+    abroot get [стан]
+
+Параметри:
+    --help/-h               Показати це повідомлення
+
+Стани:
+    present                 Отримати поточний стан кореневого розділу
+    future                  Отримати майбутній стан кореневого розділу
+
+Приклади:
+    abroot get present
+    abroot get future
+</code></pre></div></div>
+
+<h2 id="shell"><code class="language-plaintext highlighter-rouge">shell</code></h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ввести транзакційну оболонку у майбутній кореневий розділ і увімкнути кореневий при наступному завантаженні.
+
+Використання:
+    abroot shell
+
+Параметри:
+    --help/-h                   Показати це повідомлення
+    --assume-yes/-y             Вважати, що ви відповіли "так" на всі запитання
+
+Приклади:
+    abroot shell
+</code></pre></div></div>
+
+<h2 id="_update-boot"><code class="language-plaintext highlighter-rouge">_update-boot</code></h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Опис:
+    Оновити завантажувальний розділ з метою обслуговування (лише для досвідчених користувачів!).
+
+Використання:
+    abroot _update-boot
+
+Параметри:
+    --help/-h                   Показати це повідомлення
+    --assume-yes/-y             Вважати, що ви відповіли "так" на всі запитання
+</code></pre></div></div>
+
+<h2 id="дивіться-також">Дивіться також</h2>
+
+<ul>
+  <li><a href="/docs/pix/index.uk"><code class="language-plaintext highlighter-rouge">pix</code></a></li>
+  <li><a href="/docs/kso/index.uk"><code class="language-plaintext highlighter-rouge">kso</code></a></li>
+</ul>
+
+<h2 id="автори">Автори</h2>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Спільнота KOOMPI OS
+Переклад: Сапуцький Петро (@voxelin)
+</code></pre></div></div>
+
+<h2 id="повідомлення-про-вади">ПОВІДОМЛЕННЯ ПРО ВАДИ</h2>
+
+<p>Повідомляйте про вади на <a href="https://github.com/koompi-os/ABRoot/issues">трекер випусків</a>.</p>
+</div>
+      </article>
+    </main>
+    <script>
+    autosummary("article", "aside>.summary>ul");
+</script>
+
+  </body>
+</html>

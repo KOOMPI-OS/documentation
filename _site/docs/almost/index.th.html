@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <title></title>
+<link rel="stylesheet" href="/assets/css/index.css">
+<script type="text/javascript" src="/assets/js/autosummary.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  <body>
+    <main>
+      <aside>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="https://github.com/KOOMPI-OS/documentation">Source Code</a>
+          </li>
+          <li>
+            <a href="https://koompi.org/">Website</a>
+          </li>
+        </ul>
+        <div class="summary">
+          <b>Summary</b>
+          <ul>
+              <li>Loading...</li>
+          </ul>
+        </div>
+      </aside>
+      <article>
+        <div class="container"><h1 id="การล็อคไฟล์ระบบ-almost">การล็อคไฟล์ระบบ (<code class="language-plaintext highlighter-rouge">almost</code>)</h1>
+
+<p><code class="language-plaintext highlighter-rouge">almost</code> เป็นเครื่องมือในการล็อคไฟล์ระบบตามความต้องการโดยการเปิด-ปิดไฟล์และโฟลเดอร์ในโฟลเดอร์ราก 
+(root)</p>
+
+<h2 id="มันใช้งานอย่างไร">มันใช้งานอย่างไร</h2>
+
+<p>การล็อคไฟล์ระบบโดยใช้ <code class="language-plaintext highlighter-rouge">almost</code> ทำงานโดยการตั้งสถานะ <code class="language-plaintext highlighter-rouge">i</code> บนทุกไฟล์และโฟลเดอร์
+ในโฟลเดอร์ราก, ยกเว้นโฟลเดอร์ที่เก็บไฟล์การตั้งค่าของซอฟท์แวร์
+และโฟลเดอร์บ้านของผู้ใช้ (<code class="language-plaintext highlighter-rouge">/home, /etc, /var</code>).</p>
+
+<p>การทำงานในรูปแบบเดียวกันนี้สามารถใช้คำสั่ง <code class="language-plaintext highlighter-rouge">chattr</code> แทนได้, แต่ <code class="language-plaintext highlighter-rouge">almost</code> มอบความสม่ำเสมอ
+ของการทำงานโดยการกลับเข้าสู่ค่าเริ่มต้นหลังรีบูตเครื่อง และฟีเจอร์เพิ่มเติมอื่นๆ ในการจัดการ
+การล็อคไฟล์ระบบ, เช่นการใช้งานคำสั่งในขณะที่ปิดการใช้งานการล็อคไฟล์ระบบชั่วคราว</p>
+
+<h3 id="การล็อคไฟล์ระบบตามความต้องการ">การล็อคไฟล์ระบบตามความต้องการ</h3>
+
+<p>เราใช้คำว่าการล็อคไฟล์ระบบ <em>ตามความต้องการ</em> เพราะเราสามารถเปิดหรือปิดการใช้งานได้ตลอดเวลา
+การล็อคไฟล์ระบบถูกใช้งานเพื่อเพิ่มความปลอดภัยโดยการป้องกันไม่ให้ไฟล์ถูกเปลี่ยนแปลงโดยไม่ได้ตั้งใจ
+ดังนั้นมันควรถูกเปิดใช้งานตลอดเวลา</p>
+
+<p>ตามธรรมชาติของมันแล้ว <code class="language-plaintext highlighter-rouge">almost</code> นั้นพร้อมที่จะใช้งานทันที และใช้งานได้กับทุกระบบไฟล์และการตั้งค่าต่างๆ</p>
+
+<h3 id="ชื่อ">ชื่อ</h3>
+
+<p>ชื่อ <code class="language-plaintext highlighter-rouge">almost</code> มาจากการที่เครื่องมือนี้ไม่ได้ถูกใช้งานเพื่อการล็อคไฟล์ระบบเต็มรูปแบบ
+แต่เป็นเพียงแค่เครื่องมือที่ทำให้ล็อคไฟล์ได้ ในขณะที่ยังสามารถแก้ไขไฟล์ต่างๆ ได้เมื่อต้องการ</p>
+
+<h2 id="มันทำอะไรไม่ได้บ้าง">มันทำอะไรไม่ได้บ้าง</h2>
+
+<p><code class="language-plaintext highlighter-rouge">almost</code> ไม่มีการรองรับฟีเจอร์ snapshots. ทุกการเปลี่ยนแปลงจะเกิดขึ้นแบบถาวร และไม่สามารถ
+แก้ไขได้นอกจากการสำรองข้อมูล หรือการดาวน์เกรดระบบ เพื่อหลีกเลี่ยงข้อผิดพลาดนี้ คุณควรทดสอบการตั้งค่าใน
+เลเยอร์ก่อนยืนยันการเปลี่ยนแปลง เหตุผลในการปิดการใช้งานการล็อคไฟล์ระบบมีเพียงแค่การแก้ไขไฟล์ตั้งค่าที่ไม่ได้อยู่ในโฟลเดอร์ทั่วไป
+หรือเพื่อติดตั้งไดรเวอร์ ไม่แนะนำให้ปิดการใช้งานการล็อคไฟล์ระบบเพื่อติดตั้งแอปพลิเคชั่นหรือไลบรารีต่างๆ 
+ใช้ <a href="/docs/pix"><code class="language-plaintext highlighter-rouge">pix</code></a>, <a href="/docs/flatpak"><code class="language-plaintext highlighter-rouge">Flatpak</code></a>,
+<a href="/docs/snap"><code class="language-plaintext highlighter-rouge">Snap</code></a> หรือ <a href="/docs/appimage"><code class="language-plaintext highlighter-rouge">AppImage</code></a> แทน</p>
+
+<h2 id="การใช้งาน">การใช้งาน</h2>
+
+<ul>
+  <li><a href="/docs/almost/manpage">หน้า Manpage</a></li>
+  <li><a href="/docs/almost/layers">เลเยอร์</a></li>
+  <li><a href="/docs/almost/configuration">การตั้งค่า</a></li>
+</ul>
+</div>
+      </article>
+    </main>
+    <script>
+    autosummary("article", "aside>.summary>ul");
+</script>
+
+  </body>
+</html>

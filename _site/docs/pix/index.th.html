@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <title></title>
+<link rel="stylesheet" href="/assets/css/index.css">
+<script type="text/javascript" src="/assets/js/autosummary.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  <body>
+    <main>
+      <aside>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="https://github.com/KOOMPI-OS/documentation">Source Code</a>
+          </li>
+          <li>
+            <a href="https://koompi.org/">Website</a>
+          </li>
+        </ul>
+        <div class="summary">
+          <b>Summary</b>
+          <ul>
+              <li>Loading...</li>
+          </ul>
+        </div>
+      </aside>
+      <article>
+        <div class="container"><h1 id="ตัวจัดการแพคเกจ-pix">ตัวจัดการแพคเกจ (<code class="language-plaintext highlighter-rouge">pix</code>)</h1>
+
+<p><code class="language-plaintext highlighter-rouge">pix</code> เป็นตัวจัดการแพคเเกจของ KOOMPI OS ที่ออกแบบให้ใช้งานง่าย แต่ทรงพลังและรองรับการติดตั้งแพคเกจ
+จากหลายแหล่งที่มา โดยที่ไม่ยุ่งกับไฟล์ระบบของผู้ใช้ที่เป็นโฮสต์</p>
+
+<h2 id="มันทำงานอย่างไร">มันทำงานอย่างไร</h2>
+
+<p><code class="language-plaintext highlighter-rouge">pix</code> นำกระบวนทัศน์แบบใหม่่สู่การจัดการแพคเกจ ซึ่งได้รับความคิดมาจากการใช้ระบบของคุณเป็นเพียง
+“กล่อง” บรรจุไฟล์ เพื่อให้ไฟล์ระบบนั้นปราศจากแพคเกจต่างๆ และลดความเสี่ยงในการขัดข้องด้านการเข้ากันไม่ได้ของแพคเกจ หรือแพคเกจที่ถูกสร้างแบบมีปัญหา</p>
+
+<p>ซึ่งสามารถใช้งานได้โดยการติดตั้งซอฟท์แวร์ใน “คอนเทนเนอร์” หรือกล่องบรรจุที่ถูกจัดการโดย 
+<code class="language-plaintext highlighter-rouge">pix</code> และถูกจำกัดการเข้าถึงระบบ แต่ยังสามารถใช้ไดรเวอร์ เซิฟเวอร์หน้าจอ ฯลฯ เดียวกันได้</p>
+
+<p>โฟลเดอร์บ้านของคุณถูกเชื่อมต่อกับกล่องบรรจุ ทำให้คุณสามารถเข้าถึงไฟล์การตั้งค่า หรือข้อมูลต่างๆ
+ที่แพคเกจต้องการใช้ และเข้าถึงข้อมูลของคุณของซอฟท์แวร์ที่ติดตั้งแล้วได้ เช่น การเปิดไฟล์ใน LibreOffice</p>
+
+<h3 id="ระบบของโฮสต์-ไฟล์ระบบ">ระบบของโฮสต์ (ไฟล์ระบบ)</h3>
+
+<p>ถึงแม้ว่าการติดตั้งซอฟท์แวร์บนระบบโดยตรงจะขัดกับอุดมการณ์ของโปรเจกต์ แต่ก็มีบางสถานการณ์ที่หลีกเลี่ยงไม่ได้ เช่นการติดตั้งเคอร์เนลใหม่</p>
+
+<p>ในสถานการณ์แบบนี้ คุณใช้ตัวเลือก <code class="language-plaintext highlighter-rouge">--sys</code> เพื่อหลีกเลี่ยงกล่องบรรจุ และติดตั้งบนระบบโดยตรง
+แต่ควรพึงระวังไว้ว่าเราไม่แนะนำวิธีนี้ <code class="language-plaintext highlighter-rouge">pix</code> ทำงานร่วมกัน <code class="language-plaintext highlighter-rouge">almost</code> เพื่อปิดการใช้งานการล็อค
+ไฟล์ระบบชั่วคราว และอนุญาตให้คุณติดตั้งแพคเกจที่ต้องใช้ และคืนค่าการล็อคไฟล์ในภายหลัง</p>
+
+<h3 id="แหล่งที่มาหลายๆ-แหล่ง">แหล่งที่มาหลายๆ แหล่ง</h3>
+
+<p>ตามค่าเริ่มต้นแล้ว <code class="language-plaintext highlighter-rouge">pix</code> สร้างกล่องบรรจุตามระบบ Linux Distribution ที่คุณใช้ (Ubuntu 
+22.10 สำหรับ KOOMPI OS 22.10) และใช้คำสั่งจากตัวจัดการแพคเกจของระบบนั้น (<code class="language-plaintext highlighter-rouge">apt</code> for Ubuntu)</p>
+
+<p>อย่างไรก็ตาม การติดตั้งแพคเกจจากระบบที่ใช้ตัวจัดการแพคเกจอื่นๆ ก็สามารถทำได้เช่นกัน 
+เช่นการใช้ค่า <code class="language-plaintext highlighter-rouge">--aur</code> จะสร้างกล่องบรรจุที่มีพื้นฐานจาก Arch Linux ขึ้นมา และ <code class="language-plaintext highlighter-rouge">pix</code> 
+จะจัดการซอฟท์แวร์จาก AUR (และ Pacman) และเชื่อมกล่องบรรจุนี้กับระบบของโฮสต์</p>
+
+<p>เพื่อการทดสอบและการควบคุม เราได้เลือกที่จะจำกัดการใช้งานฟีเจอร์นี้เพื่อการใช้งานแบบเฉพาะเจาะจง 
+ณ ตอนนี้ มีเพียงแค่ <code class="language-plaintext highlighter-rouge">--aur</code> ที่เรารองรับ แต่เราวางแผนที่จะรองรับตัวจัดการแพคเกจ Nix ด้วย</p>
+
+<h3 id="ชื่อ">ชื่อ</h3>
+
+<p>ชื่อ <code class="language-plaintext highlighter-rouge">pix</code> มาจาก <strong>apt (Advanced Packaging Tool)</strong>, ตัวจัดการแพคเกจที่ใช้ใน Debian 
+และระบบย่อยที่แยกออกมา (เช่น Ubuntu) และ <strong>X</strong>, ที่จะมองเห็นเป็นเส้น 2 เส้น 
+(แทนระบบโฮสต์และกล่องบรรจุ) ซ้อนทับกับ โดยที่กล่องบรรจุอยู่ด้านบน 
+หมายความว่ามันถูกใช้งานอยู่บนระบบของโฮสต์</p>
+
+<h2 id="การใช้งาน">การใช้งาน</h2>
+
+<ul>
+  <li><a href="/docs/pix/manpage">Manpage</a></li>
+</ul>
+</div>
+      </article>
+    </main>
+    <script>
+    autosummary("article", "aside>.summary>ul");
+</script>
+
+  </body>
+</html>

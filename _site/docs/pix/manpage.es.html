@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <title></title>
+<link rel="stylesheet" href="/assets/css/index.css">
+<script type="text/javascript" src="/assets/js/autosummary.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  <body>
+    <main>
+      <aside>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="https://github.com/KOOMPI-OS/documentation">Source Code</a>
+          </li>
+          <li>
+            <a href="https://koompi.org/">Website</a>
+          </li>
+        </ul>
+        <div class="summary">
+          <b>Summary</b>
+          <ul>
+              <li>Loading...</li>
+          </ul>
+        </div>
+      </aside>
+      <article>
+        <div class="container"><h1 id="manual-pix">Manual <code class="language-plaintext highlighter-rouge">pix</code></h1>
+
+<h2 id="nombre">NOMBRE</h2>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>`pix` es el administrador de paquetes de KOOMPI OS que es fácil de usar para instalar paquetes de múltiples fuentes dentro de contenedores sin la necesidad de alterar el sistema de archivos raíz.
+</code></pre></div></div>
+
+<h2 id="sinopsis">SINOPSIS</h2>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pix [opciones] [comando] [argumentos]
+</code></pre></div></div>
+
+<h2 id="descripción">DESCRIPCIÓN</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pix is a wrapper around multiple package managers to install packages and run commands inside a managed container.
+pix es un envoltorio alrededor de múltiples administradores de paquetes para realizar la instalación de paquetes y ejecutar comandos dentro de un contenedor.
+
+Uso:
+    pix [opciones] [comando] [argumentos]
+
+Opciones:
+    -h, --help      Muestra este mensaje
+    -v, --version   Muestra la versión
+    --aur           Instala paquetes desde el repositorio AUR
+    --dnf           Instala paquetes desde los repositorios de Fedora Linux
+
+Commands:
+    autoremove      Elimina todos los paquetes no utilizados
+    clean           Limpia la caché de pix
+    enter           Entra al shell del contenedor
+    export          Exporta/Recrea el acceso directo de un programa del contenedor
+    help            Muestra este mensaje
+    init            Inicializa un contenedor
+    install         Instala paquetes dentro del contenedor
+    list            Lista todos los paquetes instalados
+    log             Muestra los registros
+    purge           Purga los paquetes del contenedor
+    run             Ejecuta un comando dentro del contenedor
+    remove          Elimina paquetes del contenedor
+    search          Buscar paquetes
+    show            Muestra los detalles de un paquete
+    unexport        Elimina el acceso directo de un programa
+    update          Actualiza los repositorios de paquetes disponibles
+    upgrade         Actualiza todo el sistema instalando/actualizado los paquetes disponibles
+</code></pre></div></div>
+
+<h2 id="autoremove-autoremover">AUTOREMOVE (autoremover)</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Descripción: 
+    Elimina todos los paquetes no utilizados.
+Uso:
+    pix autoremove [opciones]
+
+Opciones:
+    -h, --help            Muestra este mensaje
+
+Uso:
+    pix autoremove
+</code></pre></div></div>
+
+<h2 id="clean-limpiar">CLEAN (limpiar)</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Descrición: 
+    Limpia la caché de pix.
+
+Uso:
+    pix clean [opciones]
+
+Opciones:
+    -h, --help            Muestra este mensaje
+
+Ejemplo:
+    pix clean
+</code></pre></div></div>
+
+<h2 id="enter-entrar">ENTER (entrar)</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Descripción: 
+    Entra al shell del contenedor.
+
+Uso:
+    pix enter [opciones]
+
+Opciones:
+    -h, --help            Muestra este mensaje
+</code></pre></div></div>
+
+<h2 id="export-exportar">EXPORT (exportar)</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Descripción: 
+    Exporta/Recrea el acceso directo de un programa del contenedor.
+
+Uso:
+    pix export <span class="nt">&lt;programa&gt;</span> [opciones]
+
+Opciones:
+    -h, --help            Muestra este mensaje
+
+Ejemplo:
+    pix export htop
+</code></pre></div></div>
+
+<h2 id="init-inicializar">INIT (inicializar)</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Descripción: 
+    Inicializa un contenedor.
+
+Uso:
+    pix init [opciones]
+
+Opciones:
+    -h, --help            Muestra este mensaje
+</code></pre></div></div>
+
+<h2 id="install-instalar">INSTALL (instalar)</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Descripción: 
+    Instala paquetes dentro del contenedor.
+
+Uso:
+    pix install [opciones] <span class="nt">&lt;paquetes&gt;</span>
+
+Opciones:
+    -h, --help            Muestra este mensaje
+    -y, --assume-yes      Proceder sin confirmación manual.
+    -f, --fix-broken      Reparar dependencias rotas antes de instalar.
+    --no-export           No exportar acceso directo después de instalar.
+    --sideload [ruta]     Instalar un paquete desde un archivo local.
+
+Ejemplos:
+    pix install htop git
+    pix install --sideload /path/to/file.deb
+</code></pre></div></div>
+
+<h2 id="list-listar">LIST (listar)</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Descripción: 
+    Lista todos los paquetes instalados.
+
+Uso:
+    pix list [opciones]
+
+Opciones:
+    -h, --help            Muestra este mensaje
+</code></pre></div></div>
+
+<h2 id="log-registrobitácora">LOG (registro/bitácora)</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Descripción: 
+    Muestra los registros.
+
+Uso:
+    pix log [opciones]
+
+Opciones:
+    -h, --help            Muestra este mensaje
+</code></pre></div></div>
+
+<h2 id="purge-purgar">PURGE (purgar)</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Descripción: 
+    Purga los paquetes del contenedor.
+
+Uso:
+    pix purge <span class="nt">&lt;paquetes&gt;</span> [opciones]
+
+Opciones:
+    -h, --help            Show this help message and exit
+
+Ejemplos:
+    pix purge htop
+</code></pre></div></div>
+
+<h2 id="run-correrejecutar">RUN (correr/ejecutar)</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Descripción: 
+    Ejecuta un comando dentro del contenedor.
+
+Uso:
+    pix run <span class="nt">&lt;programa&gt;</span> [opciones]
+
+Opciones:
+    -h, --help            Muestra este mensaje
+
+Ejemplo:
+    pix run htop
+</code></pre></div></div>
+
+<h2 id="remove-remover">REMOVE (remover)</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Descripción:
+    Elimina paquetes del contenedor.
+
+Uso:
+    pix remove <span class="nt">&lt;paquetes&gt;</span> [opciones]
+
+Opciones:
+    -h, --help            Muestra este mensaje
+
+Ejemplo:
+    pix remove htop
+</code></pre></div></div>
+
+<h2 id="search-buscar">SEARCH (buscar)</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Descripción: 
+    Buscar paquetes.
+
+Uso
+    pix search <span class="nt">&lt;paquetes&gt;</span> [opciones]
+
+Opciones:
+    -h, --help            Muestra este mensaje
+
+Ejemplo:
+    pix search htop
+</code></pre></div></div>
+
+<h2 id="show-mostrar">SHOW (mostrar)</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Descripción: 
+    Muestra los detalles de un paquete.
+
+Uso:
+    pix show <span class="nt">&lt;paquete&gt;</span> [opciones]
+
+Opciones:
+    -h, --help            Muestra este mensaje
+
+Ejemplo:
+    pix show htop
+</code></pre></div></div>
+
+<h2 id="unexport-des-exportar">UNEXPORT (des-exportar)</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Descripción:
+    Elimina el acceso directo de un programa.
+
+Uso:
+    pix unexport <span class="nt">&lt;programa&gt;</span> [opciones]
+
+Opciones:
+    -h, --help            Muestra este mensaje
+
+Ejemplo:
+    pix unexport htop
+</code></pre></div></div>
+
+<h2 id="update-actualizar">UPDATE (actualizar)</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Descripción: 
+    Actualiza los repositorios de paquetes disponibles.
+
+Uso:
+    pix update [opciones]
+
+Opciones:
+    -h, --help            Muestra este mensaje
+
+Ejemplo:
+    pix update
+</code></pre></div></div>
+
+<h2 id="upgrade-mejorar">UPGRADE (mejorar)</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Descripción: 
+    Actualiza todo el sistema instalando/actualizado los paquetes disponibles.
+
+Uso:
+    pix upgrade [opciones]
+
+Opciones:
+    -h, --help            Muestra este mensaje
+
+Ejemplo:
+    pix upgrade
+</code></pre></div></div>
+
+<h2 id="version">VERSION</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Descripción:
+    Muestra la versión.
+
+Uso:
+    pix --version
+    pix -v
+</code></pre></div></div>
+
+<h2 id="vea-también">VEA TAMBIÉN</h2>
+
+<ul>
+  <li><a href="/docs/ABRoot"><code class="language-plaintext highlighter-rouge">abroot</code></a></li>
+  <li><a href="/docs/kso"><code class="language-plaintext highlighter-rouge">kso</code></a></li>
+</ul>
+
+<h2 id="autor">AUTOR</h2>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@JMarcosHP
+</code></pre></div></div>
+
+<h2 id="reporte-de-errores">REPORTE DE ERRORES</h2>
+
+<p>Reportar los errores al <a href="https://github.com/koompi-os/ABRoot/issues">rastreador de problemas</a>.</p>
+</div>
+      </article>
+    </main>
+    <script>
+    autosummary("article", "aside>.summary>ul");
+</script>
+
+  </body>
+</html>

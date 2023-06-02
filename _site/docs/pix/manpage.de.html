@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <title></title>
+<link rel="stylesheet" href="/assets/css/index.css">
+<script type="text/javascript" src="/assets/js/autosummary.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  <body>
+    <main>
+      <aside>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="https://github.com/KOOMPI-OS/documentation">Source Code</a>
+          </li>
+          <li>
+            <a href="https://koompi.org/">Website</a>
+          </li>
+        </ul>
+        <div class="summary">
+          <b>Summary</b>
+          <ul>
+              <li>Loading...</li>
+          </ul>
+        </div>
+      </aside>
+      <article>
+        <div class="container"><h1 id="manpage-pix">Manpage <code class="language-plaintext highlighter-rouge">pix</code></h1>
+
+<h2 id="name">NAME</h2>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>`pix` - Der nutzerfreundliche KOOMPI OS-Paketverwalter mit Unterstützung für die Installation von Paketen aus verschiedenen Quellen in Containern, um das Root-Dateisystem nicht zu verändern.
+</code></pre></div></div>
+
+<h2 id="übersicht">ÜBERSICHT</h2>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pix [Optionen] [Befehl] [Argumente]
+</code></pre></div></div>
+
+<h2 id="beschreibung">BESCHREIBUNG</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pix ist ein Wrapper um mehrere Paketvervaltungprogramme, der Installationen und andere Befehle in einem verwalteten Container durchführt.
+
+Aufruf:
+    pix [Optionen] [Befehl] [Argumente]
+
+Optionen:
+    -h, --help      Diese Hilfe ausgeben und beenden
+    -v, --version   Versionsinformation anzeigen und beenden
+    --aur           Pakete aus dem AUR installieren
+    --dnf           Pakete aus dem Fedora-Repository installieren
+
+Befehle:
+    autoremove      Alle nicht genutzten Pakete entfernen
+    clean           Cache des pix-Paketverwalters leeren
+    enter           Container-Shell öffnen
+    export          Menüeintrag eines Programms aus dem Container exportieren
+    help            Diese Hilfe ausgeben und beenden
+    init            Einen verwalteten Container initialisieren
+    install         Paket innerhalb des Containers installieren
+    list            Installierte Pakete auflisten
+    log             Logdateien anzeigen
+    purge           Pakete und Konfigurationsdateien vom Container entfernen
+    run             Befehl innerhalb des Containers ausführen
+    remove          Pakete vom Container entfernen
+    search          Nach Paketen suchen
+    show            Details über ein Paket anzeigen
+    unexport        Menüeintrag eines Programms entfernen
+    update          Liste der verfügbaren Pakete aktualisieren
+    upgrade         Verfügbare Paketaktualisierungen anwenden
+    version         Versionsinformation anzeigen und beenden
+</code></pre></div></div>
+
+<h2 id="autoremove">AUTOREMOVE</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Beschreibung: 
+    Alle nicht genutzten Pakete automatisch entfernen.
+
+Aufruf:
+    pix autoremove [Optionen]
+
+Optionen:
+    -h, --help            Diese Hilfe ausgeben und beenden
+
+Beispiele:
+    pix autoremove
+</code></pre></div></div>
+
+<h2 id="clean">CLEAN</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Beschreibung: 
+    Cache des pix-Paketverwalters leeren.
+
+Aufruf:
+    pix clean [Optionen]
+
+Optionen:
+    -h, --help            Diese Hilfe ausgeben und beenden
+
+Beispiele:
+    pix clean
+</code></pre></div></div>
+
+<h2 id="enter">ENTER</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Beschreibung: 
+    Die Shell des gegebenen Containers öffnen.
+
+Aufruf:
+    pix enter [Optionen]
+
+Optionen:
+    -h, --help            Diese Hilfe ausgeben und beenden
+</code></pre></div></div>
+
+<h2 id="export">EXPORT</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Beschreibung: 
+    Den Menüeintrag eines Programms aus einem verwalteten Container exportieren/neuerstellen.
+
+Aufruf:
+    pix export <span class="nt">&lt;Programm&gt;</span> [Optionen]
+
+Optionen:
+    -h, --help            Diese Hilfe ausgeben und beenden
+
+Beispiele:
+    pix export htop
+</code></pre></div></div>
+
+<h2 id="init">INIT</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Beschreibung: 
+    Einen verwalteten Container initialisieren.
+
+Aufruf:
+    pix init [Optionen]
+
+Optionen:
+    -h, --help            Diese Hilfe ausgeben und beenden
+</code></pre></div></div>
+
+<h2 id="install">INSTALL</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Beschreibung: 
+    Pakete innerhalb eines verwalteten Containers installieren.
+
+Aufruf:
+    pix install [Optionen] <span class="nt">&lt;Pakete&gt;</span>
+
+Optionen:
+    -h, --help            Diese Hilfe ausgeben und beenden
+    -y, --assume-yes      Ohne manuelle Bestätigung fortfahren
+    -f, --fix-broken      Vor der Installation beschädigte Abhängigkeiten reparieren
+    --no-export           Menüeintrag nach der Installation nicht exportieren
+    --sideload [Pfad]     Paket von einer lokalen Datei installieren
+
+Beispiele:
+    pix install htop git
+    pix install --sideload /Pfad/zur/Datei.deb
+</code></pre></div></div>
+
+<h2 id="list">LIST</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Beschreibung: 
+    Installierte Pakete auflisten.
+
+Aufruf:
+    pix list [Optionen]
+
+Optionen:
+    -h, --help            Diese Hilfe ausgeben und beenden
+</code></pre></div></div>
+
+<h2 id="purge">PURGE</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Beschreibung: 
+    Pakete und Konfigurationsdateien in einem verwalteten Container entfernen.
+
+Aufruf:
+    pix purge <span class="nt">&lt;Pakete&gt;</span> [Optionen]
+
+Optionen:
+    -h, --help            Diese Hilfe ausgeben und beenden
+
+Beispiele:
+    pix purge htop
+</code></pre></div></div>
+
+<h2 id="remove">REMOVE</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Beschreibung:
+    Pakete in einem verwalteten Container entfernen.
+
+Aufruf:
+    pix remove <span class="nt">&lt;Pakete&gt;</span> [Optionen]
+
+Optionen:
+    -h, --help            Diese Hilfe ausgeben und beenden
+
+Beispiele:
+    pix remove htop
+</code></pre></div></div>
+
+<h2 id="run">RUN</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Beschreibung: 
+    Programm in einem verwalteten Container ausführen.
+
+Aufruf:
+    pix run <span class="nt">&lt;Programm&gt;</span> [Optionen]
+
+Optionen:
+    -h, --help            Diese Hilfe ausgeben und beenden
+
+Beispiele:
+    pix run htop
+</code></pre></div></div>
+
+<h2 id="search">SEARCH</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Beschreibung: 
+    In einem verwalteten Container nach Paketen suchen.
+
+Aufruf:
+    pix search <span class="nt">&lt;Pakete&gt;</span> [Optionen]
+
+Optionen:
+    -h, --help            Diese Hilfe ausgeben und beenden
+
+Beispiele:
+    pix search htop
+</code></pre></div></div>
+
+<h2 id="show">SHOW</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Beschreibung: 
+    Details über ein Paket anzeigen.
+
+Aufruf:
+    pix show <span class="nt">&lt;package&gt;</span> [Optionen]
+
+Optionen:
+    -h, --help            Diese Hilfe ausgeben und beenden
+
+Beispiele:
+    pix show htop
+</code></pre></div></div>
+
+<h2 id="unexport">UNEXPORT</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Beschreibung:
+    Menüeintrag eines Programms aus einem verwalteten Container entfernen.
+
+Aufruf:
+    pix unexport <span class="nt">&lt;Programm&gt;</span> [Optionen]
+
+Optionen:
+    -h, --help            Diese Hilfe ausgeben und beenden
+
+Beispiele:
+    pix unexport htop
+</code></pre></div></div>
+
+<h2 id="update">UPDATE</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Beschreibung: 
+    Die Liste der verfügbaren Pakete aktualisieren.
+
+Aufruf:
+    pix update [Optionen]
+
+Optionen:
+    -h, --help            Diese Hilfe ausgeben und beenden
+
+Beispiele:
+    pix update
+</code></pre></div></div>
+
+<h2 id="upgrade">UPGRADE</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Beschreibung: 
+    Verfügbare Paketaktualisierungen anwenden.
+
+Aufruf:
+    pix upgrade [Optionen]
+  
+Optionen:
+    -h, --help            Diese Hilfe ausgeben und beenden
+
+Beispiele:
+    pix upgrade
+</code></pre></div></div>
+
+<h2 id="version">VERSION</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Beschreibung:
+    Die pix-Version anzeigen.
+
+Aufruf:
+    pix --version
+    pix -v
+</code></pre></div></div>
+
+<h2 id="siehe-auch">SIEHE AUCH</h2>
+
+<ul>
+  <li><a href="/docs/ABRoot"><code class="language-plaintext highlighter-rouge">abroot</code></a></li>
+  <li><a href="/docs/kso"><code class="language-plaintext highlighter-rouge">kso</code></a></li>
+</ul>
+
+<h2 id="author">AUTHOR</h2>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Mitwirkende von KOOMPI OS
+</code></pre></div></div>
+
+<h2 id="fehler-melden">FEHLER MELDEN</h2>
+
+<p>Fehler bitte beim <a href="https://github.com/koompi-os/pix/issues">Bugtracker</a> melden.</p>
+</div>
+      </article>
+    </main>
+    <script>
+    autosummary("article", "aside>.summary>ul");
+</script>
+
+  </body>
+</html>

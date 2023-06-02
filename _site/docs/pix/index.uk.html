@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <title>Менеджер пакунків (pix) - KOOMPI OS</title>
+<link rel="stylesheet" href="/assets/css/index.css">
+<script type="text/javascript" src="/assets/js/autosummary.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  <body>
+    <main>
+      <aside>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="https://github.com/KOOMPI-OS/documentation">Source Code</a>
+          </li>
+          <li>
+            <a href="https://koompi.org/">Website</a>
+          </li>
+        </ul>
+        <div class="summary">
+          <b>Summary</b>
+          <ul>
+              <li>Loading...</li>
+          </ul>
+        </div>
+      </aside>
+      <article>
+        <div class="container"><h1 id="менеджер-пакунків-pix">Менеджер пакунків (<code class="language-plaintext highlighter-rouge">pix</code>)</h1>
+
+<p><code class="language-plaintext highlighter-rouge">pix</code> - це простий у використанні менеджер пакунків KOOMPI OS з підтримкою встановлення пакунків з різних джерел всередині контейнерів без зміни кореневої файлової системи.</p>
+
+<h2 id="як-це-працює">Як це працює</h2>
+
+<p><code class="language-plaintext highlighter-rouge">pix</code> представляє абсолютно нову парадигму в управлінні пакунками. Ідея полягає у використанні
+вашої системи лише як сховище для зберігання ваших файлів, залишаючи її чистою від пакунків
+і обмежуючи ризик краху через несумісні, погано зібрані або ж
+суперечливі пакунки.</p>
+
+<p>Це досягається шляхом встановлення програмного забезпечення всередині одного або декількох контейнерів, повністю керованих <code class="language-plaintext highlighter-rouge">pix</code>, з обмеженим доступом до ресурсів вашої системи, але з можливістю використання тих самих драйверів, Display-сервера тощо.</p>
+
+<p>Ваш домашній каталог відображається всередині контейнера, тому ви можете отримати доступ до ваших
+конфігураційних файлів, налаштувань та інших важливих даних, необхідних встановленим
+пакунків, а також мати доступ до ваших файлів зі встановленого
+програмного забезпечення, наприклад, відкривши файл у LibreOffice.</p>
+
+<h3 id="хост-система">Хост-система</h3>
+
+<p>Хоча встановлення програмного забезпечення на хості суперечить ідеології проєкту, існують випадки, коли це необхідно. Наприклад, коли вам потрібно
+встановити модуль ядра або драйвер.</p>
+
+<p>У таких випадках ви можете скористатися командою <code class="language-plaintext highlighter-rouge">abroot exec apt install &lt;назва_пакунка&gt;</code> або <code class="language-plaintext highlighter-rouge">abroot shell apt install &lt;назва_пакунка&gt;</code>, щоб обійти контейнер і встановити безпосередньо на хост, <em>але майте на увазі, що це не рекомендується</em>.</p>
+
+<h3 id="кілька-джерел">Кілька джерел</h3>
+
+<p>За замовчуванням <code class="language-plaintext highlighter-rouge">pix</code> надає контейнер на основі вашого дистрибутиву Linux (Ubuntu
+22.10 для KOOMPI OS 22.10) і обгортає всі команди у Ваш менеджер пакунків (<code class="language-plaintext highlighter-rouge">apt</code> для Ubuntu).</p>
+
+<p>Проте, ви можете встановити пакунки з пакунків інших дистрибутивів. Наприклад, за допомогою перемикача <code class="language-plaintext highlighter-rouge">--aur</code> буде створено новий контейнер на основі Arch Linux. Тут <code class="language-plaintext highlighter-rouge">pix</code> керуватиме пакунками
+з AUR (Pacman і yay), тісно інтегруючи їх з хост-системою. Використання прапора <code class="language-plaintext highlighter-rouge">--dnf</code> з <code class="language-plaintext highlighter-rouge">pix</code> призведе до створення нового контейнера на основі Fedora Linux. У цьому випадку <code class="language-plaintext highlighter-rouge">pix</code> керуватиме пакунками з репозиторію Fedora DNF, тісно інтегруючи їх з хост-системою.</p>
+
+<p>Для пакунків з графічним інтерфейсом, створених всередині контейнерів <code class="language-plaintext highlighter-rouge">pix</code>, буде автоматично створено файли <code class="language-plaintext highlighter-rouge">.desktop</code> і додано до меню Програми. Ці програми буде показано поряд з іншими програмами у меню “Відкрити за допомогою” у nautilus. Пакунки з графічним інтерфейсом, встановлені у контейнерах, буде показано у розділі “Підсистеми” у <a href="/docs/vanilla-control-center">Центрі керування ваніллю</a>.</p>
+
+<p>Задля контролю якості ми обмежуємо цю можливість певними реалізаціями. Наразі підтримуються лише прапори <code class="language-plaintext highlighter-rouge">--aur</code> та <code class="language-plaintext highlighter-rouge">--dnf</code>, але у майбутньому ми плануємо реалізувати підтримку і для менеджера пакунків Nix.</p>
+
+<h3 id="найменування">Найменування</h3>
+
+<p>Назва <code class="language-plaintext highlighter-rouge">pix</code> походить від <strong>apt (Advanced Packaging Tool)</strong>, менеджера пакунків, який використовується у Debian та його похідних. <strong>X</strong> складається з двох рядків (хост і контейнер), що перекривають один одного, де контейнер знаходиться зверху, тобто він знаходиться поверх хост-системи.</p>
+
+<h2 id="використання">Використання</h2>
+
+<ul>
+  <li><a href="/docs/pix/manpage.uk">Manpage</a></li>
+</ul>
+
+<h3 id="автори">Автори</h3>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Спільнота KOOMPI OS
+Переклад: Сапуцький Петро (@voxelin)
+</code></pre></div></div>
+</div>
+      </article>
+    </main>
+    <script>
+    autosummary("article", "aside>.summary>ul");
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <title>Porting ABRoot to your distribution - KOOMPI OS</title>
+<link rel="stylesheet" href="/assets/css/index.css">
+<script type="text/javascript" src="/assets/js/autosummary.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  <body>
+    <main>
+      <aside>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="https://github.com/KOOMPI-OS/documentation">Source Code</a>
+          </li>
+          <li>
+            <a href="https://koompi.org/">Website</a>
+          </li>
+        </ul>
+        <div class="summary">
+          <b>Summary</b>
+          <ul>
+              <li>Loading...</li>
+          </ul>
+        </div>
+      </aside>
+      <article>
+        <div class="container"><h1 id="porting-abroot-to-your-distribution">Porting ABRoot to your distribution</h1>
+
+<p>ABRoot is a technology that can be used to bring atomic transactions to any Linux distribution. However, it may require some additional setup or configuration in order to function properly with different setups.</p>
+
+<p>The instructions provided in this documentation are general guidelines, and may require some adjustments to work on your specific Linux distribution. To properly use and configure ABRoot, a basic understanding of how Linux works, including knowledge of the package manager, the common file structure of a Linux root partition and what atomicity is, is necessary. It is important to consult the documentation for specific details and make any necessary adaptations.</p>
+
+<p>Also a good understanding of what ABRoot is and how it works is necessary to properly port it to your distribution. If you are not familiar with ABRoot, please read the <a href="/docs/ABRoot/index">ABRoot documentation</a> first.</p>
+
+<h3 id="possible-changes-needed-to-the-system">Possible changes needed to the system</h3>
+
+<p>There are some possible changes you might need to apply to your system to make it compatible with ABRoot. This list only works as a starting point and not a to-do list. Your system may already be compatible with ABRoot without any modifications or with many others that are not foreseen in this documentation, so it is important to be prepared to troubleshoot and experiment.</p>
+
+<p>Some possible changes include:</p>
+
+<ul>
+  <li>Updating the kernel to a newer version</li>
+  <li><a href="https://bugs.launchpad.net/ubuntu/+source/grub2/+bug/1247905">Patch the <code class="language-plaintext highlighter-rouge">grub-mkconfig</code> script</a> to support the <code class="language-plaintext highlighter-rouge">overlay</code> file system, needed during the transaction</li>
+  <li>Make some custom hooks to prevent some binaries to be executed outside of the transactional shell, like the package manager command line or prevent the package manager to update some files you may want to patch</li>
+  <li>Patch one or more software to support the <a href="#file-system-structure">ABRoot file system structure</a></li>
+  <li>Patch other software to prevent them from installing files in the root partition since it should be updated only during the transaction</li>
+  <li>Write your own way to make the <a href="#protected-directories">protected directories</a> immutable, like using a systemd unit</li>
+  <li>Make some custom mount points to mount some directories as a bind mount, like <code class="language-plaintext highlighter-rouge">/var</code>, to make software like Flatpak work properly since it reads the symlink of <code class="language-plaintext highlighter-rouge">/var</code> to its protected directory, breaking some applications</li>
+</ul>
+
+<h3 id="file-system-structure">File system structure</h3>
+
+<p>ABRoot uses a custom file system structure to allow for atomic transactions. It is designed to be compatible with the classic file system structure, but there are some differences.</p>
+
+<p>The following is the structure of a root partition with ABRoot:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.
+├── bin -&gt; .system/usr/bin
+├── boot
+├── dev
+├── etc -&gt; .system/etc
+├── home
+├── lib -&gt; .system/usr/lib
+├── lib32 -&gt; .system/usr/lib32
+├── lib64 -&gt; .system/usr/lib64
+├── libx32 -&gt; .system/usr/libx32
+├── media
+├── mnt
+├── opt
+├── proc
+├── root
+├── run
+├── sbin -&gt; .system/usr/sbin
+├── srv
+├── sys
+├── tmp
+├── usr -&gt; .system/usr
+└── var
+</code></pre></div></div>
+
+<p>As you can see, some directories are now symlinks to the <code class="language-plaintext highlighter-rouge">.system</code> directory, which is the true root of the system. This is done to allow ABRoot to switch the content of the root partition in a atomic way.</p>
+
+<p>It’s important to note that, the libs directories can be different in other distributions and you may need to patch ABRoot to support a different layout.</p>
+
+<h3 id="protected-directories">Protected directories</h3>
+
+<p>Protected Directories in ABRoot are a crucial aspect of its design, as they ensure that the essential components of the system are protected from accidental or unintended modifications. These directories are considered vital to the proper functioning of the system and any changes made to them can have severe consequences on the system’s stability and security.</p>
+
+<p><code class="language-plaintext highlighter-rouge">/usr</code> is the recommended directory to protect, as it contains the packages and libraries necessary for the system to operate. Protecting this path is crucial in preventing system crashes, security breaches, or general instability. It also ensures the integrity of the packages and libraries, and prevents any unintended changes from occurring. To make any changes to this path, it is necessary to use the ABRoot’s transaction mechanism. This guarantees that any changes made will be atomic and will not affect the system stability and security.</p>
+
+<h3 id="getting-started">Getting started</h3>
+
+<p>It is recommended to work with the ABRoot code directly, rather than using any packaged version. This allows for better debugging and making changes to the code, as well as ensuring that you are using the most up-to-date version of the software. In order to do this, you will need to install <strong>Go</strong> (version <strong>1.19.2 or later</strong>), and clone the ABRoot repository from the <a href="https://github.com/koompi-os/ABRoot">KOOMPI OS Github Organization</a>.</p>
+
+<p>Then build the <code class="language-plaintext highlighter-rouge">abroot</code> binary with the following command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>go build <span class="nt">-o</span> abroot
+</code></pre></div></div>
+
+<h4 id="setting-up-the-environment">Setting up the environment</h4>
+
+<p>For better testing and security purposes, it is recommended to use a virtual machine (VM) since ABRoot need a specific partitioning to works.</p>
+
+<p>The following is the recommended partitioning for the VM:</p>
+
+<ul>
+  <li>1 partition for the boot</li>
+  <li>2 root partitions (labeled “a” and “b”) of the same size (at least 20GB, but this can vary depending on the distribution)</li>
+  <li>1 for the home</li>
+</ul>
+
+<p>To make sure that the testing environment is not affected by the changes you made it is recommended to take a snapshot of the setup when it is ready, so you can revert it without re-initializing the VM every time a test goes wrong.</p>
+
+<h4 id="initial-testing">Initial testing</h4>
+
+<p>Once the VM is set up, you should copy the abroot binary you built to the <code class="language-plaintext highlighter-rouge">/usr/bin</code> directory. Then, you can start testing by running the command <code class="language-plaintext highlighter-rouge">abroot get present</code> to ensure that the setup is correct. It will raise an error if the A/B structure is not correct, so you may need to re-partition the VM to fix it.</p>
+
+<blockquote>
+  <p>The recommended way to run any test is entering a root session and export the <code class="language-plaintext highlighter-rouge">ABROOT_VERBOSE=1</code> environment variable for gain more verbosity.</p>
+</blockquote>
+
+<p>Next, you can try starting a transactional shell. If the command failed it means that there are some incompatibilities with the system that we should fix.</p>
+
+<p>This task can vary from distribution to distribution and the <code class="language-plaintext highlighter-rouge">ABROOT_VERBOSE</code> variable helps in this as it lists all operations that are performed, including errors. This will allow you to identify what changes you need to make.</p>
+
+<p>To fix a compatibility problem like apply a patch on the fly, consider using the hook system of ABRoot, just by placing your custom shell scripts in <code class="language-plaintext highlighter-rouge">/etc/abroot/start-transaction-rules.d</code> and <code class="language-plaintext highlighter-rouge">/etc/abroot/end-transaction-rules.d</code>. The start scripts run right before the shell opens and end scripts run when the shell is closed. Note that when the shell is closed, ABRoot starts the atomic transaction, so you cannot run any commands that will modify the system.</p>
+
+<h4 id="final-considerations">Final considerations</h4>
+
+<p>I know that this documentation does not cover all the possible problems that can occur when porting ABRoot to a new distribution, but this is intended to be a starting point. Predicting all the possible problems that can occur is impossible, so it is important to be prepared to troubleshoot and experiment.</p>
+
+<p>If you have any questions or suggestions, feel free to open an issue in the <a href="https://github.com/koompi-os/ABRoot/issues">ABRoot repository</a>.</p>
+</div>
+      </article>
+    </main>
+    <script>
+    autosummary("article", "aside>.summary>ul");
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <title></title>
+<link rel="stylesheet" href="/assets/css/index.css">
+<script type="text/javascript" src="/assets/js/autosummary.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  <body>
+    <main>
+      <aside>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="https://github.com/KOOMPI-OS/documentation">Source Code</a>
+          </li>
+          <li>
+            <a href="https://koompi.org/">Website</a>
+          </li>
+        </ul>
+        <div class="summary">
+          <b>Summary</b>
+          <ul>
+              <li>Loading...</li>
+          </ul>
+        </div>
+      </aside>
+      <article>
+        <div class="container"><h1 id="மாறாத-தன்மை-almost">மாறாத தன்மை (<code class="language-plaintext highlighter-rouge">almost</code>)</h1>
+
+<p><code class="language-plaintext highlighter-rouge">almost</code> என்பது கணினி ரூட்டில் உள்ள கோப்புகள் மற்றும் கோப்பகங்களின் மாறாத தன்மையை மாற்றுவதன் மூலம் தேவைக்கேற்ப மாறாத தன்மையை வழங்கும் ஒரு பயன்பாடாகும். இது மாறாத கோப்பகங்களின் மேல் அடுக்குகளை உருவாக்குவதற்கான வழியையும் வழங்குகிறது, மாற்றங்களைச் செய்வதற்கு முன் அவற்றைச் சோதிக்க உங்களை அனுமதிக்கிறது.</p>
+
+<h2 id="எப்படி-இது-செயல்படுகிறது">எப்படி இது செயல்படுகிறது</h2>
+
+<p>மென்பொருள் உள்ளமைவு கோப்புகள் மற்றும் பயனரின் முகப்பு கோப்பகத்தை (<code class="language-plaintext highlighter-rouge">/home, /etc, /var</code>) சேமிக்கப் பயன்படும்
+கோப்புகளைத் தவிர, கணினி மூலத்தில் உள்ள அனைத்து கோப்புகள் மற்றும் கோப்பகங்களில் <code class="language-plaintext highlighter-rouge">i</code> கொடியை அமைப்பதன் மூலம் <code class="language-plaintext highlighter-rouge">கிட்டத்தட்ட</code> இல் உள்ள மாறாத தன்மை பெறப்படுகிறது.</p>
+
+<p>இதையே <code class="language-plaintext highlighter-rouge">chattr</code> கட்டளையைப் பயன்படுத்தி அடையலாம், ஆனால் <code class="language-plaintext highlighter-rouge">கிட்டத்தட்ட</code> ஆனது, மறுதொடக்கத்திற்குப் பிறகு கணினியின் இயல்புநிலை நிலையை மீட்டமைப்பதன் மூலம் நிலைத்தன்மையை வழங்குகிறது, மேலும் மாற்றத்தை சிறப்பாக நிர்வகிக்க கூடுதல் அம்சங்களுடன், எ.கா. மாறாத தன்மையை தற்காலிகமாக முடக்கும் போது கட்டளையை துவக்குகிறது.</p>
+
+<h3 id="தேவைக்கேற்ப-மாறாத-தன்மை">தேவைக்கேற்ப மாறாத தன்மை</h3>
+
+<p>இது எந்த நேரத்திலும் இயக்கப்படலாம் அல்லது முடக்கப்படலாம் என்பதால் இது <em>தேவைக்கேற்ப(on-demand)</em> மாறாத தன்மை என்று அழைக்கப்படுகிறது. மாற்றமின்மை என்பது கணினியில் தற்செயலான மாற்றங்களைத் தடுக்க ஒரு பாதுகாப்பு நடவடிக்கையாகப் பயன்படுத்தப்படுகிறது, எனவே இது பெரும்பாலான நேரங்களில் இயக்கப்பட்டிருக்க வேண்டும்.</p>
+
+<p>அதன் இயல்பு காரணமாக, <code class="language-plaintext highlighter-rouge">almost</code> பயன்படுத்த தயாராக உள்ளது மற்றும் அனைத்து கோப்பு முறைமைகள் மற்றும் கட்டமைப்புகளில் வேலை செய்கிறது.</p>
+
+<h3 id="பெயர்">பெயர்</h3>
+
+<p><code class="language-plaintext highlighter-rouge">almost</code> என்ற பெயர் ஒரு முழுமையான மாறாத தீர்வு அல்ல, மாறாக தேவைப்படும்போது மாற்றங்களைச் செய்யக்கூடிய நிலையில், அதை அடைய உதவும் ஒரு கருவியாக இருப்பதால் வந்தது.</p>
+
+<h2 id="அது-என்ன-இல்லை">அது என்ன இல்லை</h2>
+
+<p><code class="language-plaintext highlighter-rouge">almost</code> ஸ்னாப்ஷாட்களுக்கு ஆதரவு இல்லை. கணினியில் செய்யப்படும் ஒவ்வொரு மாற்றமும் நிரந்தரமானது மற்றும் காப்புப்பிரதியிலிருந்து மீட்டெடுப்பதன் மூலமோ அல்லது கணினியை தரமிறக்குவதன் மூலமோ மட்டுமே திரும்பப்பெற முடியும். இதைத் தவிர்க்க, உங்கள் மாற்றங்களைச் செய்வதற்கு முன், லேயர்களைப் பயன்படுத்தி எப்போதும் அவற்றைச் சோதிக்க வேண்டும். மாறாத தன்மையை முடக்க ஒரே காரணம் பொதுவான கோப்பகங்களில் இல்லாத உள்ளமைவு கோப்பை திருத்துவது அல்லது இயக்கிகளை நிறுவுவது. பயன்பாடு அல்லது நூலக நிறுவலின் போது மாறாத தன்மையை முடக்குவது
+பரிந்துரைக்கப்படவில்லை. அதற்குப் பதிலாக <a href="/docs/pix"><code class="language-plaintext highlighter-rouge">pix</code></a>, <a href="/docs/flatpak"><code class="language-plaintext highlighter-rouge">Flatpak(பிளாட்பாக்)</code></a>,<a href="/docs/snap"><code class="language-plaintext highlighter-rouge">Snap(ஸ்னாப்)</code></a> அல்லது <a href="/docs/appimage"><code class="language-plaintext highlighter-rouge">AppImage</code></a> ஐப் பயன்படுத்தவும்.</p>
+
+<h2 id="பயன்பாடு">பயன்பாடு</h2>
+
+<ul>
+  <li><a href="/docs/almost/manpage">மேன் பக்கம்</a></li>
+  <li><a href="/docs/almost/layers">அடுக்குகள்</a></li>
+  <li><a href="/docs/almost/configuration">உள்ளமைவு</a></li>
+</ul>
+</div>
+      </article>
+    </main>
+    <script>
+    autosummary("article", "aside>.summary>ul");
+</script>
+
+  </body>
+</html>

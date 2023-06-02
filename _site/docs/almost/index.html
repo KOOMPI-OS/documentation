@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <title>Immutability (almost) - KOOMPI OS</title>
+<link rel="stylesheet" href="/assets/css/index.css">
+<script type="text/javascript" src="/assets/js/autosummary.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  <body>
+    <main>
+      <aside>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="https://github.com/KOOMPI-OS/documentation">Source Code</a>
+          </li>
+          <li>
+            <a href="https://koompi.org/">Website</a>
+          </li>
+        </ul>
+        <div class="summary">
+          <b>Summary</b>
+          <ul>
+              <li>Loading...</li>
+          </ul>
+        </div>
+      </aside>
+      <article>
+        <div class="container"><h1 id="immutability-almost">Immutability (<code class="language-plaintext highlighter-rouge">almost</code>)</h1>
+
+<p><code class="language-plaintext highlighter-rouge">almost</code> is a utility that provides on-demand immutability by toggling the
+immutability of files and directories in the system root. It also provides
+a way to create layers on top of immutable directories, allowing you to test
+changes before committing them.</p>
+
+<h2 id="how-it-works">How it works</h2>
+
+<p>Immutability in <code class="language-plaintext highlighter-rouge">almost</code> is obtained by setting the <code class="language-plaintext highlighter-rouge">i</code> flag on all files and
+directories in the system root, except those that are used to store software
+configuration files and the user’s home directory (<code class="language-plaintext highlighter-rouge">/home, /etc, /var</code>).</p>
+
+<p>The same can be achieved using the <code class="language-plaintext highlighter-rouge">chattr</code> command, but <code class="language-plaintext highlighter-rouge">almost</code> provides
+consistency by restoring the default state of the system after a reboot, and
+with additional features to better manage immutability, e.g. launching a command while
+temporarily disabling immutability.</p>
+
+<h3 id="on-demand-immutability">On-demand immutability</h3>
+
+<p>This is called <em>on-demand</em> immutability as it can be enabled or disabled
+at any time. Immutability is meant to be used as a safety measure to prevent
+accidental changes to the system, so it should be kept enabled most of the
+time.</p>
+
+<p>Due to its nature, <code class="language-plaintext highlighter-rouge">almost</code> is ready to use and works on all filesystems
+and configurations.</p>
+
+<h3 id="the-name">The name</h3>
+
+<p>The name <code class="language-plaintext highlighter-rouge">almost</code> comes from the fact that it is not a full-fledged
+immutability solution, but rather a tool to help you achieve it, while still being
+able to make changes when needed.</p>
+
+<h2 id="what-it-is-not">What it is not</h2>
+
+<p><code class="language-plaintext highlighter-rouge">almost</code> has no support for snapshots. Every change made to the system is
+permanent and can only be reverted by restoring from a backup or downgrading
+the system. To avoid this, you should always test your changes using layers
+before committing them. The only reason to disable immutability would be to edit
+a configuration file which is not in the common directories or to install
+drivers. Disabling the immutability during an application or library installation is
+not recommended. Use <a href="/docs/pix"><code class="language-plaintext highlighter-rouge">pix</code></a>, <a href="/docs/flatpak"><code class="language-plaintext highlighter-rouge">Flatpak</code></a>,
+<a href="/docs/snap"><code class="language-plaintext highlighter-rouge">Snap</code></a> or <a href="/docs/appimage"><code class="language-plaintext highlighter-rouge">AppImage</code></a> instead.</p>
+
+<h2 id="usage">Usage</h2>
+
+<ul>
+  <li><a href="/docs/almost/manpage">Manpage</a></li>
+  <li><a href="/docs/almost/layers">Layers</a></li>
+  <li><a href="/docs/almost/configuration">Configuration</a></li>
+</ul>
+</div>
+      </article>
+    </main>
+    <script>
+    autosummary("article", "aside>.summary>ul");
+</script>
+
+  </body>
+</html>

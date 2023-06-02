@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <title></title>
+<link rel="stylesheet" href="/assets/css/index.css">
+<script type="text/javascript" src="/assets/js/autosummary.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  <body>
+    <main>
+      <aside>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="https://github.com/KOOMPI-OS/documentation">Source Code</a>
+          </li>
+          <li>
+            <a href="https://koompi.org/">Website</a>
+          </li>
+        </ul>
+        <div class="summary">
+          <b>Summary</b>
+          <ul>
+              <li>Loading...</li>
+          </ul>
+        </div>
+      </aside>
+      <article>
+        <div class="container"><h1 id="koompi-os">KOOMPI OS</h1>
+
+<p><em>Pruebe la experiencia de GNOME Vanilla en Ubuntu con algunos condimentos.</em></p>
+
+<p><strong>Está página es la documentación oficial para los componentes de KOOMPI OS en su edición en Español.</strong><br />
+Lea el <a href="https://handbook.vanillaos.org"><strong>Manual</strong></a> para aprender guías y tutoriales escritos por la comunidad.</p>
+
+<h2 id="preguntas-frecuentes">PREGUNTAS FRECUENTES</h2>
+
+<p>Respuestas a las preguntas más frecuentes (aunque el proyecto es muy joven).</p>
+<ul>
+  <li>
+    <p><strong>¿Por qué una nueva distribución?</strong><br />
+KOOMPI OS surgió de la necesidad de una distribución de Linux basada en Ubuntu que 
+proporcionara GNOME vanilla sin ningún cambio en la experiencia 
+de usuario. Más tarde, su alcance se amplió para experimentar con algunas herramientas y 
+tecnologías, como ABRoot y pix (el 
+subsistema basado en Distrobox).</p>
+  </li>
+  <li>
+    <p><strong>¿Utiliza OSTree?</strong><br />
+No. KOOMPI OS consigue la inmutabilidad a través de <a href="https://github.com/koompi-os/ABRoot"><code class="language-plaintext highlighter-rouge">ABRoot</code></a>[anteriormente lo conseguíamos gracias a la utilidad <code class="language-plaintext highlighter-rouge">almost</code>]. El uso de OSTree se considerará en el futuro.</p>
+
+    <p>Escribimos esta utilidad para la inmutabilidad bajo demanda basada en el 
+atributo de inmutabilidad de los archivos. Este enfoque funciona en cualquier partición 
+del sistema de archivos/esquema de particiones.</p>
+
+    <p>Actualmente hemos introducido otra nueva utilidad para conseguir la inmutabilidad bajo demanda
+llamada <a href="https://github.com/koompi-os/ABRoot"><code class="language-plaintext highlighter-rouge">ABRoot</code></a> reemplazando a <code class="language-plaintext highlighter-rouge">almost</code> para proveer una completa inmutabilidad y atomicidad, al realizar las transacciones entre 2 particiones raíz (A⟺B). También se consiguen las transacciones bajo demanda gracias al shell transaccional.</p>
+  </li>
+  <li>
+    <p><strong>Lanzamiento contínuo</strong><br />
+No. KOOMPI OS es un lanzamiento puntual y sigue el ciclo de lanzamiento de Ubuntu.</p>
+  </li>
+</ul>
+
+<h2 id="documentación">Documentación</h2>
+
+<ul>
+  <li>
+    <p><strong><a href="https://handbook.vanillaos.org/2022/11/05/installation.html">Instalación</a></strong><br />
+Instrucciones para la instalación del sistema mediante <a href="https://github.com/koompi-os/vanilla-installer">Vanilla Installer</a>.</p>
+  </li>
+  <li>
+    <p><strong><a href="https://handbook.vanillaos.org/2022/11/18/first-setup.html">Configuración Inicial</a></strong><br />
+Con la utilidad de <a href="https://github.com/koompi-os/first-setup">Configuración Inicial</a> que proporciona KOOMPI OS, usted podrá ajustar su sistema a sus necesidades.</p>
+  </li>
+  <li>
+    <p><strong><a href="/docs/pix">Administrador de paquetes (<code class="language-plaintext highlighter-rouge">pix</code>)</a></strong><br />
+pix es un administrador de paquetes que permite instalar y gestionar paquetes en un
+contenedor gestionado, sin afectar al sistema anfitrión. <code class="language-plaintext highlighter-rouge">pix</code> puede instalar paquetes de los repositorios oficiales de Ubuntu, pero no solo eso, tambien de Arch User Repository (AUR) y de los repositorios DNF de Fedora dentro de un contenedor. Está muy bien integrado con el sistema anfitrión. Para los paquetes con interfaz gráfica (GUI), un acceso directo se creará automáticamente y se agragará al menú de aplicaciones de GNOME.</p>
+  </li>
+  <li>
+    <p><strong><a href="/docs/kso">Operador del Sistema de Vanilla (<code class="language-plaintext highlighter-rouge">KSO por sus siglas en inglés</code>)</a></strong><br />
+El <a href="/docs/kso">Operador del Sistema de Vanilla</a> es una utilidad de KOOMPI OS que le permite realizar tareas de mantenimiento como actualizar el software, programar tareas, etc.</p>
+  </li>
+  <li>
+    <p><strong><a href="https://github.com/koompi-os/vanilla-control-center">Panel de Control de Vanilla</a></strong><br />
+Es una utilidad que le permite configurar las <a href="https://handbook.vanillaos.org/2022/12/10/updates.html">actualizaciones</a> e instalar <a href="https://handbook.vanillaos.org/2022/12/10/install-additional-drivers.html">controladores adicionales</a> en su sistema.</p>
+  </li>
+  <li>
+    <p><strong><a href="/docs/almost">Inmutabilidad (<code class="language-plaintext highlighter-rouge">almost</code>)</a></strong><br />
+<del><a href="https://github.com/koompi-os/almost">Almost</a> es una utilidad para la inmutabilidad bajo demanda basada
+en el atributo de inmutabilidad de los archivos.</del> (Almost fue reemplazado por <code class="language-plaintext highlighter-rouge">ABRoot</code>).</p>
+  </li>
+</ul>
+</div>
+      </article>
+    </main>
+    <script>
+    autosummary("article", "aside>.summary>ul");
+</script>
+
+  </body>
+</html>

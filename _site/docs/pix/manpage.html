@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <title>Manpage pix - KOOMPI OS</title>
+<link rel="stylesheet" href="/assets/css/index.css">
+<script type="text/javascript" src="/assets/js/autosummary.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  <body>
+    <main>
+      <aside>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="https://github.com/KOOMPI-OS/documentation">Source Code</a>
+          </li>
+          <li>
+            <a href="https://koompi.org/">Website</a>
+          </li>
+        </ul>
+        <div class="summary">
+          <b>Summary</b>
+          <ul>
+              <li>Loading...</li>
+          </ul>
+        </div>
+      </aside>
+      <article>
+        <div class="container"><h1 id="manpage-pix">Manpage <code class="language-plaintext highlighter-rouge">pix</code></h1>
+
+<h2 id="name">NAME</h2>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>`pix` - the KOOMPI OS package manager that is easy to use with support for installing packages from multiple sources inside containers without altering the root filesystem.
+</code></pre></div></div>
+
+<h2 id="synopsis">SYNOPSIS</h2>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pix [options] [command] [arguments]
+</code></pre></div></div>
+
+<h2 id="description">DESCRIPTION</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pix is a wrapper around multiple package managers to install packages and run commands inside a managed container.
+
+Usage:
+    pix [options] [command] [arguments]
+
+Options:
+    -h, --help      Show this help message and exit
+    -v, --version   Show version and exit
+    --aur           Install packages from the AUR repository
+    --dnf           Install packages from the Fedora repository
+
+Commands:
+    autoremove      Remove all unused packages
+    clean           Clean the pix package manager cache
+    enter           Enter the container shell
+    export          Export/Recreate a program's desktop entry from the container
+    help            Show this help message and exit
+    init            Initialize a managed container
+    install         Install packages inside the container
+    list            List installed packages
+    log             Show logs
+    purge           Purge packages from the container
+    run             Run a command inside the container
+    remove          Remove packages from the container
+    search          Search for packages
+    show            Show details about a package
+    unexport        Unexport/Remove a program's desktop entry
+    update          Update the list of available packages
+    upgrade         Upgrade the system by installing/upgrading available packages
+</code></pre></div></div>
+
+<h2 id="autoremove">AUTOREMOVE</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Description: 
+    Remove all unused packages automatically.
+Usage:
+    pix autoremove [options]
+
+Options:
+    -h, --help            Show this help message and exit
+
+Usage:
+    pix autoremove
+</code></pre></div></div>
+
+<h2 id="clean">CLEAN</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Description: 
+    Clean the pix package manager cache.
+
+Usage:
+    pix clean [options]
+
+Options:
+    -h, --help            Show this help message and exit
+
+Examples:
+    pix clean
+</code></pre></div></div>
+
+<h2 id="enter">ENTER</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Description: 
+    Enter in the container shell.
+
+Usage:
+    pix enter [options]
+
+Options:
+    -h, --help            Show this help message and exit
+</code></pre></div></div>
+
+<h2 id="export">EXPORT</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Description: 
+    Export/Recreate a program's desktop entry from a managed container.
+
+Usage:
+    pix export <span class="nt">&lt;program&gt;</span> [options]
+
+Options:
+    -h, --help            Show this help message and exit
+
+Examples:
+    pix export htop
+</code></pre></div></div>
+
+<h2 id="init">INIT</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Description: 
+    Initialize the managed container.
+
+Usage:
+    pix init [options]
+
+Options:
+    -h, --help            Show this help message and exit
+</code></pre></div></div>
+
+<h2 id="install">INSTALL</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Description: 
+    Install packages inside a managed container.
+
+Usage:
+    pix install [options] <span class="nt">&lt;packages&gt;</span>
+
+Options:
+    -h, --help            Show this help message and exit
+    -y, --assume-yes      Proceed without manual confirmation.
+    -f, --fix-broken      Fix broken deps before installing
+    --no-export           Do not export a desktop entry after the installation. 
+    --sideload [path]     Install a package from a local file.
+
+Examples:
+    pix install htop git
+    pix install --sideload /path/to/file.deb
+</code></pre></div></div>
+
+<h2 id="list">LIST</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Description: 
+    List installed packages.
+
+Usage:
+    pix list [options]
+
+Options:
+    -h, --help            Show this help message and exit
+</code></pre></div></div>
+
+<h2 id="purge">PURGE</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Description: 
+    Purge packages inside a managed container.
+
+Usage:
+    pix purge <span class="nt">&lt;packages&gt;</span> [options]
+
+Options:
+    -h, --help            Show this help message and exit
+
+Examples:
+    pix purge htop
+</code></pre></div></div>
+
+<h2 id="remove">REMOVE</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Description:
+    Remove packages inside a managed container.
+
+Usage:
+    pix remove <span class="nt">&lt;packages&gt;</span> [options]
+
+Options:
+    -h, --help            Show this help message and exit
+
+Examples:
+    pix remove htop
+</code></pre></div></div>
+
+<h2 id="run">RUN</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Description: 
+    Run a program inside a managed container.
+
+Usage:
+    pix run <span class="nt">&lt;program&gt;</span> [options]
+
+Options:
+    -h, --help            Show this help message and exit
+
+Examples:
+    pix run htop
+</code></pre></div></div>
+
+<h2 id="search">SEARCH</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Description: 
+    Search for packages in a managed container.
+
+Usage:
+    pix search <span class="nt">&lt;packages&gt;</span> [options]
+
+Options:
+    -h, --help            Show this help message and exit
+
+Examples:
+    pix search htop
+</code></pre></div></div>
+
+<h2 id="show">SHOW</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Description: 
+    Show details about a package.
+
+Usage:
+    pix show <span class="nt">&lt;package&gt;</span> [options]
+
+Options:
+    -h, --help            Show this help message and exit
+
+Examples:
+    pix show htop
+</code></pre></div></div>
+
+<h2 id="unexport">UNEXPORT</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Description:
+    Unexport/Remove a program's desktop entry from a managed container.
+
+Usage:
+    pix unexport <span class="nt">&lt;program&gt;</span> [options]
+
+Options:
+    -h, --help            Show this help message and exit
+
+Examples:
+    pix unexport htop
+</code></pre></div></div>
+
+<h2 id="update">UPDATE</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Description: 
+    Update the list of available packages.
+
+Usage:
+    pix update [options]
+
+Options:
+    -h, --help            Show this help message and exit
+
+Examples:
+    pix update
+</code></pre></div></div>
+
+<h2 id="upgrade">UPGRADE</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Description: 
+    Upgrade the system by installing/upgrading available packages.
+
+Usage:
+    pix upgrade [options]
+  
+Options:
+    -h, --help            Show this help message and exit
+
+Examples:
+    pix upgrade
+</code></pre></div></div>
+
+<h2 id="version">VERSION</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Description:
+    Display the version number of pix.
+
+Usage:
+    pix --version
+    pix -v
+</code></pre></div></div>
+
+<h2 id="see-also">SEE ALSO</h2>
+
+<ul>
+  <li><a href="/docs/ABRoot"><code class="language-plaintext highlighter-rouge">abroot</code></a></li>
+  <li><a href="/docs/kso"><code class="language-plaintext highlighter-rouge">kso</code></a></li>
+</ul>
+
+<h2 id="author">AUTHOR</h2>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Contributors of KOOMPI OS
+</code></pre></div></div>
+
+<h2 id="reporting-bugs">REPORTING BUGS</h2>
+
+<p>Report bugs to the <a href="https://github.com/koompi-os/pix/issues">issue tracker</a>.</p>
+</div>
+      </article>
+    </main>
+    <script>
+    autosummary("article", "aside>.summary>ul");
+</script>
+
+  </body>
+</html>

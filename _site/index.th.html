@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <title></title>
+<link rel="stylesheet" href="/assets/css/index.css">
+<script type="text/javascript" src="/assets/js/autosummary.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  <body>
+    <main>
+      <aside>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="https://github.com/KOOMPI-OS/documentation">Source Code</a>
+          </li>
+          <li>
+            <a href="https://koompi.org/">Website</a>
+          </li>
+        </ul>
+        <div class="summary">
+          <b>Summary</b>
+          <ul>
+              <li>Loading...</li>
+          </ul>
+        </div>
+      </aside>
+      <article>
+        <div class="container"><h1 id="koompi-os">KOOMPI OS</h1>
+
+<p>รับประสบการณ์ GNOME แบบดั้งเดิมบน Ubuntu พร้อมกับการปรุงแต่งเพิ่มเติม</p>
+
+<h2 id="คำถามที่พบบ่อย">คำถามที่พบบ่อย</h2>
+
+<p>คำตอบสำหรับคำถามที่พบบ่อย (ถึงแม้ว่าโปรเจกต์นี้จะยังมีอายุน้อยก็ตาม).</p>
+<ul>
+  <li><strong>ทำไมต้องสร้างระบบใหม่ด้วย?</strong><br />
+KOOMPI OS เกิดขึ้นจากความต้องการระบบที่มีพื้นฐานจาก Ubuntu Linux ที่ใช้ GNOME แบบดั้งเดิม
+โดยที่ไม่มีการเปลี่ยนแปลงต่อประสบการณ์การใช้งาน และในภายหลังมีการเพิ่มเทคโนโลยีและเครื่องมืออื่นๆ เช่น Almost (การล็อคไฟล์ระบบตามความต้องการ) และ pix (ตัวจัดการแพคเกจที่มีพื้นฐานบน Distrobox)</li>
+  <li><strong>มันใช้ OSTree หรือเปล่า?</strong><br />
+ไม่, KOOMPI OS ล็อคไฟล์ระบบผ่าน <a href="https://github.com/koompi-os/almost"><code class="language-plaintext highlighter-rouge">almost</code></a>. 
+เราสร้างเครื่องมือนี้สำหรับการล็อคไฟล์ระบบตามความต้องการตามคุณสมบัติของไฟล์
+ซึ่งวิธีนี้ทำให้สามารถล็อคไฟล์บนระบบไฟล์แบบใดก็ได้ แต่อาจมีการพิจารณาการใช้งาน OSTree ในอนาคต</li>
+  <li><strong>ใช้การปล่อยเวอร์ชั่นแบบ Rolling Release (ไม่มีเวลากำหนดแน่นอน) ไหม?</strong><br />
+ไม่, KOOMPI OS มีการปล่อยเวอร์ชั่นใหม่ตาม Ubuntu</li>
+</ul>
+
+<h2 id="หัวข้อ">หัวข้อ</h2>
+
+<ul>
+  <li>
+    <p><strong><a href="/docs/almost">การล็อคไฟล์ระบบ (<code class="language-plaintext highlighter-rouge">almost</code>)</a></strong><br />
+Almost เป็นเครื่องมือที่ใช้ในการล็อคไฟล์ระบบตามความต้องการตามคุณสมบัติของไฟล์</p>
+  </li>
+  <li>
+    <p><strong><a href="/docs/pix">ตัวจัดการแพคเกจ (<code class="language-plaintext highlighter-rouge">pix</code>)</a></strong><br />
+pix เป็นตัวจัดการแพคเกจที่ให้คุณติดตั้งและจัดการแพคเกจในพื้นที่ที่จำกัด โดยไม่ยุ่งกับไฟล์ของระบบ แต่ก็สามารถใช้ pix ในการติดตั้งแพคเกจบนระบบโดยไม่ผ่านตัวจำกัดได้</p>
+  </li>
+</ul>
+</div>
+      </article>
+    </main>
+    <script>
+    autosummary("article", "aside>.summary>ul");
+</script>
+
+  </body>
+</html>
