@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/images/Documentation.png" height="40">
+# Documentation
 
 --------------
 
