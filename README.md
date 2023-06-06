@@ -2,8 +2,6 @@
 
 # Documentation
 
---------------
-
 <sup1>Available at https://docs.koompi.org</sup1>
 
 </div>
