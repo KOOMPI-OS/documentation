@@ -1,8 +1,6 @@
 <div align="center">
 
-<img src="assets/images/Documentation.png" height="40">
-
---------------
+# Documentation
 
 <sup1>Available at https://docs.koompi.org</sup1>
 
