@@ -7,9 +7,6 @@ description: Find out how to use KOOMPI OS and all its tools and settings.
 
 Experince Our New Version OS3 with some new exciting features.
 
-**This page is the official documentation for KOOMPI OS components.**\
-Check out [**Handbook**](https://handbook.koompi.org) for user-written guides and tutorials.
-
 ## FAQ
 
 Answers to the most frequently asked questions about KOOMPI OS.
