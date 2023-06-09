@@ -16,10 +16,9 @@ Answers to the most frequently asked questions about KOOMPI OS.
 
 ## User Guides
 
-- **[Installation](https://handbook.koompi.org/2022/11/05/installation.html)**
-- **[First Setup](https://handbook.koompi.org/2022/11/18/first-setup.html)**
-- **[Updates](https://handbook.koompi.org/2022/12/10/updates.html)**
-- **[More guides](https://handbook.koompi.org/)**
+- **[Installation](/docs/installation)**
+- **[First Setup](/docs/first-setup)**
+- **[Updates](/docs/updates)**
 
 ## Core Components Docs
 
