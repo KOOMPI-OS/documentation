@@ -17,7 +17,6 @@ Answers to the most frequently asked questions about KOOMPI OS.
 ## User Guides
 
 - **[Installation](/docs/installation)**
-- **[First Setup](/docs/first-setup)**
 - **[Updates](/docs/updates)**
 
 ## Core Components Docs

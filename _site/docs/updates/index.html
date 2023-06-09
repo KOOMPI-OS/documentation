@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <title>Update and Upgrade KOOMPI OS</title>
+<link rel="stylesheet" href="/assets/css/index.css">
+<script type="text/javascript" src="/assets/js/autosummary.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  <body>
+    <main>
+      <aside>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="https://github.com/KOOMPI-OS/documentation">Source Code</a>
+          </li>
+          <li>
+            <a href="https://koompi.org/">Website</a>
+          </li>
+        </ul>
+        <div class="summary">
+          <b>Summary</b>
+          <ul>
+              <li>Loading...</li>
+          </ul>
+        </div>
+      </aside>
+      <article>
+        <div class="container"><p>KOOMPI OS is a point release distribution that receives two new releases annually with security updates and bug fixes for system components distributed between releases, usually without any new features introduced.</p>
+
+<h2 id="difference-between-update-and-upgrade">Difference between Update and Upgrade</h2>
+
+<p>“Updates” refers to newer versions of packages that bring minor improvements, bug fixes, and security updates. They get installed in the background and do not make any noticeable changes to the system.</p>
+
+<p>With “Upgrade” instead, we refer to the transition from one release of
+KOOMPI OS to another, for example, from 22.10 to 23.04. In addition to the usual bug fixes and security updates, there are new features and potential changes to the system.</p>
+
+<h2 id="update-koompi-os">Update KOOMPI OS</h2>
+
+<p>Updates in KOOMPI OS are handled by nSO (KOOMPI System Operator), which manages the operating system. KSO performs weekly or monthly updates in the background without any user intervention. Since KOOMPI OS is a transactional system, the updates are applied only after a reboot.</p>
+
+<h3 id="configure-kso">Configure KSO</h3>
+
+<p>KSO is flexible and allows configurations to suit your needs. The following are the available options:</p>
+
+<ul>
+  <li><strong>Smart Update:</strong> If enabled, KSO will check whether the system is in an ideal state to perform an update without hindering the user experience. It is done by performing multiple checks, such as the connection, memory, CPU and battery status. When the system is not ideal for performing an update, KSO will skip it and try again later. If disabled, KSO will perform the update without any further checks.</li>
+  <li><strong>Schedule:</strong> KSO allows configurations for performing automatic updates at fixed intervals, such as weekly or monthly. The default setting performs automatic updates at weekly intervals.</li>
+</ul>
+
+<h4 id="configure-via-control-center">Configure via Control Center</h4>
+
+<p>KSO allows managing updates and configurations via the <strong>KOOMPI Control Center</strong>. To do so, open the <strong>KOOMPI Control Center</strong>
+from the Applications menu, click on the “Updates” tab and configure the options as you wish or check for an update.</p>
+
+<p><img src="/assets/uploads/updates/koompi-control-center-kso.webp" alt="Control Center - Updates" /></p>
+
+<h4 id="configure-via-console">Configure via Console</h4>
+
+<p>To configure KSO via the console, use the following commands:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># check the current configuration</span>
+<span class="nb">sudo </span>kso config show
+
+<span class="c"># check a specific option</span>
+<span class="nb">sudo </span>kso config get update.smart
+
+<span class="c"># update a specific option</span>
+<span class="nb">sudo </span>kso config <span class="nb">set </span>update.smart <span class="nb">true</span>
+</code></pre></div></div>
+
+<h2 id="update">Update</h2>
+
+<h3 id="check-for-an-update">Check for an update</h3>
+
+<p>If you want to check for an update without installing it, you can do so using the following command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>kso update-check
+</code></pre></div></div>
+
+<h3 id="force-an-update">Force an update</h3>
+
+<p>If you want to force an update, you can do so by acting as the system operator,
+using the following command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>kso trigger-update <span class="nt">--now</span>
+</code></pre></div></div>
+</div>
+      </article>
+    </main>
+    <script>
+    autosummary("article", "aside>.summary>ul");
+</script>
+
+  </body>
+</html>
