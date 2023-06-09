@@ -1,15 +1,10 @@
 <div align="center">
 
-<img src="assets/images/Documentation.png" height="40">
+# Documentation
 
---------------
-
-<sup1>Available at https://docs.koompi.org</sup1>
+<sup1>Available at https://os.koompi.org/docs</sup1>
 
 </div>
-
-## Translate
-If you want to translate the documentation, read the [TRANSLATE](TRANSLATE.md) file.
 
 ## Build
 ```bash
